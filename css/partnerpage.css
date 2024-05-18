@@ -1,0 +1,22 @@
+#photo img{
+    width: 50%;
+    object-fit: contain;
+}
+
+#interactive-partner-photo img{
+    width: 40px;
+    height: 40px;
+}
+
+#interactive-partner-feedback{
+    overflow-y: auto;
+    height: 55%;
+}
+
+#interactive{
+    overflow-x: auto ;
+}
+
+.progress-bar{
+    background-color: var(--btnClick);
+}

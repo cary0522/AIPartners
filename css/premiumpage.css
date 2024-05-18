@@ -1,0 +1,33 @@
+.plan{
+    border: 3px dashed black;
+}
+
+.plan-ones .pet-card-img{
+    filter: blur(5px);
+}
+
+.pet-card-img{
+    border-radius: 100px;
+}
+
+.pet-card-lock{
+    z-index: 1;
+    top: 30%;
+    left: 30%;
+}
+
+.month-card{
+    overflow-x: scroll;
+}
+
+.month-card-blur{
+    width: 300%;
+    height: 100%;
+    overflow-x: scroll;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+.month-card:hover .month-card-blur{
+    display: none;
+}

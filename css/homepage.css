@@ -1,0 +1,97 @@
+
+
+.navbar-toggle:checked+.collapse {
+    display: block;
+}
+
+.iphone {
+    height: 500px;
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgb(215, 194, 194);
+}
+
+.partner-text,
+.user-text {
+    padding: 10px;
+    background-color: var(--main);
+    border-radius: 25px;
+}
+
+.partner-text {
+    margin-left: 20px;
+}
+
+.user-text {
+    margin-right: 20px;
+}
+
+.partner-text::before {
+    content: '';
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 15px solid var(--main);
+    position: absolute;
+    top: 10px;
+    left: 2px;
+}
+
+.user-text::before {
+    content: '';
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-left: 15px solid var(--main);
+    position: absolute;
+    right: 2px;
+    top: 10px;
+}
+
+.enter-content {
+    bottom: 8px;
+}
+
+.animal-photo img {
+    border-radius: 200px;
+    max-height: 100%;
+    /* height: auto; */
+    /* object-fit: fill; */
+}
+
+.options {
+    border: 1px black dashed;
+    width: 150px;
+    height: 300px;
+}
+
+.clip-card , .btnStart{
+    background-color: var(--main-text);
+    font-size: 20px;
+}
+
+@keyframes card-hover {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(5px, -5px);
+    }
+}
+
+.options-behaviors:hover {
+    animation: card-hover .5s linear;
+    background-color: var(--main-text);
+    color: white;
+}
+
+.options-behaviors:hover>i {
+    color: white;
+}
+
+@media screen and (min-width:576px) {
+    .card-text{
+        font-size: 20px;
+    }
+    
+}

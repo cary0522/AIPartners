@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5292bd8fe4.js" crossorigin="anonymous"></script>
+    <title>Partners</title>
+</head>
+
+<body>
+    <div class="header-page"></div>
+
+    <div class="partnerspage container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h2 class="py-3">夥伴基本資料</h2>
+                <div class="d-flex justify-content-center">
+                    <p class="fs-4">夥伴姓名：</p>
+                    <p id="partner-name" class="fs-4"></p>
+                </div>
+                <div id="photo"></div>
+            </div>
+            <div class="col-12 col-lg-6 flex-lg-column">
+                <div class="col-lg-12 p-3" id="info"></div>
+                <div class="col-12">
+                    <h2 class="py-3">
+                        來跟你的夥伴互動吧！
+                    </h2>
+                    <div class="container col-12 col-xxl-8 mx-auto my-2">
+                        <div class="iphone bg-white w-100 position-relative">
+                            <div class="d-flex justify-content-between px-3 py-1">
+                                <div><p>AI partners</p></div>
+                                <div>
+                                    <i class="fa-solid fa-wifi mx-1"></i>
+                                    <i class="fa-solid fa-signal mx-1"></i>
+                                    <i class="fa-solid fa-battery-full mx-1"></i>
+                                </div>
+                            </div>
+                            <div class="container-fluid text-start fs-3" id="interactive-partner-name"></div>
+                            <div class="py-3 my-2" id="interactive-partner-feedback">
+                                <div class="d-flex justify-content-start">
+                                    <div class="iphone-pic ms-2" id="interactive-partner-photo"></div>
+                                    <div class="position-relative">
+                                        <p class="partner-text">Hi</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10 mx-auto d-flex flex-nowrap" id="interactive">
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="love-card">
+                                    <i class="fa-solid fa-hand-holding-heart"></i>
+                                    <div class="card-text ">關心</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="money-card">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    <div class="card-text">零用錢</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="command-card">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    <div class="card-text">稱讚</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="eating-card">
+                                    <i class="fa-solid fa-utensils"></i>
+                                    <div class="card-text">餵食</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="water-card">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <div class="card-text">喝水</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="wash-card">
+                                    <i class="fa-solid fa-shower"></i>
+                                    <div class="card-text">洗澡</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="play-card">
+                                    <i class="fa-solid fa-gamepad"></i>
+                                    <div class="card-text">玩耍</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="hand-out-card">
+                                    <i class="fa-solid fa-person-walking"></i>
+                                    <div class="card-text">散步</div>
+                                </div>
+                                <div class="m-1 px-2 py-4 col-3 options-behaviors card" id="toilet-card">
+                                    <i class="fa-solid fa-toilet"></i>
+                                    <div class="card-text">廁所</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4 class="py-3 mt-3">互動成就</h4>
+            <div class="container-fluid py-2 d-flex flex-wrap">
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-love">
+                    <div class="card">
+                        <i class="fa-solid fa-hand-holding-heart my-2"></i>
+                        <div class="card-text my-1">關心</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="love-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-money">
+                    <div class="card">
+                        <i class="fa-solid fa-hand-holding-dollar my-2"></i>
+                        <div class="card-text my-1">零用錢</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="money-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-command">
+                    <div class="card">
+                        <i class="fa-solid fa-thumbs-up my-2"></i>
+                        <div class="card-text my-1">稱讚</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="command-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-eating">
+                    <div class="card">
+                        <i class="fa-solid fa-utensils my-2"></i>
+                        <div class="card-text my-1">餵食</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="eating-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-water">
+                    <div class="card">
+                        <i class="fa-solid fa-droplet my-2"></i>
+                        <div class="card-text my-1">喝水</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="water-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-wash">
+                    <div class="card">
+                        <i class="fa-solid fa-shower my-2"></i>
+                        <div class="card-text my-1">洗澡</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="wash-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-play">
+                    <div class="card">
+                        <i class="fa-solid fa-gamepad my-2"></i>
+                        <div class="card-text my-1">玩耍</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="play-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-hand-out">
+                    <div class="card">
+                        <i class="fa-solid fa-person-walking my-2"></i>
+                        <div class="card-text my-1">散步</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="hand-out-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-2 achievement-progress progress-toilet">
+                    <div class="card">
+                        <i class="fa-solid fa-toilet my-2"></i>
+                        <div class="card-text my-1">廁所</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 0%;" id="toilet-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="button" id="clear">clear</button>
+    </div>
+
+    <div class="footer-page"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $('.header-page').load('header.html');
+        $('.footer-page').load('footer.html');
+
+        let partner_name = localStorage.getItem('partnerName');
+        let partner_trait = localStorage.getItem('partnerTrait');
+        let partnerTraitArr = JSON.parse(partner_trait);
+        let partner_appearance = localStorage.getItem('partnerAppearance');
+        let partnerAppearanceArr = JSON.parse(partner_appearance);
+        console.log(partnerTraitArr);
+        console.log(partnerAppearanceArr);
+
+        let partnerName = document.getElementById('partner-name');
+        partnerName.innerText = partner_name;
+        let interactivePartnerName = document.getElementById('interactive-partner-name')
+        interactivePartnerName.innerText = partner_name;
+
+        let photoSrc = [
+            'partners_photo/0000.jpg',
+            'partners_photo/0001.jpg',
+            'partners_photo/0010.jpg',
+            'partners_photo/0011.jpg',
+            'partners_photo/0100.jpg',
+            'partners_photo/0101.jpg',
+            'partners_photo/0110.jpg',
+            'partners_photo/0111.jpg',
+            'partners_photo/1000.jpg',
+            'partners_photo/1001.jpg',
+            'partners_photo/1010.jpg',
+            'partners_photo/1011.jpg',
+            'partners_photo/1100.jpg',
+            'partners_photo/1101.jpg',
+            'partners_photo/1110.jpg',
+            'partners_photo/1111.jpg',
+        ]
+        let photo = document.getElementById('photo');
+        let interactivePartnerPhoto = document.getElementById('interactive-partner-photo')
+
+
+        let info = document.getElementById('info');
+        info.innerHTML = ` 
+        <p class='fs-4'> ${partner_name}，是一位${partnerTraitArr[0]}、${partnerTraitArr[1]}、${partnerTraitArr[2]}，而且喜愛${partnerTraitArr[3]}的夥伴！ </p>
+        `
+
+        if (partnerAppearanceArr.toString() == ['毛絨可愛風', '大眼睛', '大耳朵', '身強體壯'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[0]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[0]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['毛絨可愛風', '大眼睛', '大耳朵', '瘦小可愛'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[1]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[1]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['毛絨可愛風', '大眼睛', '小耳朵', '身強體壯'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[2]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[2]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['毛絨可愛風', '大眼睛', '小耳朵', '瘦小可愛'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[3]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[3]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['毛絨可愛風', '小眼睛', '大耳朵', '身強體壯'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[4]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[4]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['毛絨可愛風', '小眼睛', '大耳朵', '瘦小可愛'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[5]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[5]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['毛絨可愛風', '小眼睛', '小耳朵', '身強體壯'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[6]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[6]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['毛絨可愛風', '小眼睛', '小耳朵', '瘦小可愛'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[7]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[7]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['現代機械風', '大眼睛', '大耳朵', '身強體壯'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[8]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[8]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['現代機械風', '大眼睛', '大耳朵', '瘦小可愛'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[9]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[9]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['現代機械風', '大眼睛', '小耳朵', '身強體壯'].toString()) {
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[10]}" alt="" class="rounded-circle flex-shrink-0">`
+            photo.innerHTML = `<img src='${photoSrc[10]}' alt=''>`
+        } else if (partnerAppearanceArr.toString() == ['現代機械風', '大眼睛', '小耳朵', '瘦小可愛'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[11]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[11]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['現代機械風', '小眼睛', '大耳朵', '身強體壯'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[12]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[12]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['現代機械風', '小眼睛', '大耳朵', '瘦小可愛'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[13]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[13]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else if (partnerAppearanceArr.toString() == ['現代機械風', '小眼睛', '小耳朵', '身強體壯'].toString()) {
+            photo.innerHTML = `<img src='${photoSrc[14]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[14]}" alt="" class="rounded-circle flex-shrink-0">`
+        } else {
+            photo.innerHTML = `<img src='${photoSrc[15]}' alt=''>`
+            interactivePartnerPhoto.innerHTML =
+                `<img src="${photoSrc[15]}" alt="" class="rounded-circle flex-shrink-0">`
+        }
+
+        let feedback = [];
+        if (partnerTraitArr[0] == '活潑') {
+            feedback[0] = '耶！我最喜歡您！'
+        } else {
+            feedback[0] = '謝謝您的幫忙'
+        }
+        if (partnerTraitArr[1] == '理性') {
+            feedback[1] = '謝謝您提供我必要的協助'
+        } else {
+            feedback[1] = '謝謝您，我好感動'
+        }
+        if (partnerTraitArr[2] == '謹慎') {
+            feedback[2] = '謝謝您，但請小心點，別受傷了'
+        } else {
+            feedback[2] = '耶！超刺激！我喜歡！'
+        }
+        if (partnerTraitArr[3] == '戶外活動') {
+            feedback[3] = '帶我出去走走吧'
+        } else {
+            feedback[3] = '讓我們一起待在家吧'
+        }
+        console.log(feedback);
+        let interactivePartnerFeedback = document.getElementById('interactive-partner-feedback')
+        interactivePartnerFeedback.scrollTop = interactivePartnerFeedback.scrollHeight
+
+        let loveCard = document.getElementById('love-card');
+        let loveProgressBar = document.getElementById('love-progress-bar');
+        let loveTimes = 0;
+        loveCard.addEventListener('click', function () {
+            loveTimes += 1;
+            let loveAchievement = loveTimes * 20 + '%';
+            loveProgressBar.style.width = loveAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length)
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let moneyCard = document.getElementById('money-card');
+        let moneyProgressBar = document.getElementById('money-progress-bar');
+        let moneyTimes = 0;
+        moneyCard.addEventListener('click', function () {
+            moneyTimes += 1;
+            let moneyAchievement = moneyTimes * 20 + '%';
+            moneyProgressBar.style.width = moneyAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let commandCard = document.getElementById('command-card');
+        let commandProgressBar = document.getElementById('command-progress-bar');
+        let commandTimes = 0;
+        commandCard.addEventListener('click', function () {
+            commandTimes += 1;
+            let commandAchievement = commandTimes * 20 + '%';
+            commandProgressBar.style.width = commandAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let eatingCard = document.getElementById('eating-card');
+        let eating = document.getElementById('eating-progress-bar');
+        let eatingTimes = 0;
+        eatingCard.addEventListener('click', function () {
+            eatingTimes += 1;
+            let eatingAchievement = eatingTimes * 20 + '%';
+            eating.style.width = eatingAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let waterCard = document.getElementById('water-card');
+        let waterProgressBar = document.getElementById('water-progress-bar');
+        let waterTimes = 0;
+        waterCard.addEventListener('click', function () {
+            waterTimes += 1;
+            let waterAchievement = waterTimes * 20 + '%';
+            waterProgressBar.style.width = waterAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let washCard = document.getElementById('wash-card');
+        let washProgressBar = document.getElementById('wash-progress-bar');
+        let wash = 0;
+        washCard.addEventListener('click', function () {
+            wash += 1;
+            let washAchievement = moneyTimes * 20 + '%';
+            washProgressBar.style.width = washAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let playCard = document.getElementById('play-card');
+        let playProgressBar = document.getElementById('play-progress-bar');
+        let playTimes = 0;
+        playCard.addEventListener('click', function () {
+            playTimes += 1;
+            let playAchievement = playTimes * 20 + '%';
+            playProgressBar.style.width = playAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let handOutCard = document.getElementById('hand-out-card');
+        let handOutProgressBar = document.getElementById('hand-out-progress-bar');
+        let handOutTimes = 0;
+        handOutCard.addEventListener('click', function () {
+            handOutTimes += 1;
+            let handOutAchievement = handOutTimes * 20 + '%';
+            handOutProgressBar.style.width = handOutAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let toiletCard = document.getElementById('toilet-card');
+        let toiletProgressBar = document.getElementById('toilet-progress-bar');
+        let toiletTimes = 0;
+        toiletCard.addEventListener('click', function () {
+            toiletTimes += 1;
+            let toiletAchievement = toiletTimes * 20 + '%';
+            toiletProgressBar.style.width = toiletAchievement;
+            let randomNum = Math.floor(Math.random() * feedback.length);
+
+            interactivePartnerFeedback.innerHTML += `
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 position-relative">
+                    <p class="partner-text">${feedback[randomNum]}</p>
+                </div>
+            </div>
+            `
+            interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
+        })
+
+        let btnClear = document.getElementById('clear')
+        btnClear.addEventListener('click', function () {
+            console.log(clear)
+            localStorage.setItem('partnerTrait', null)
+            localStorage.setItem('partnerAppearance', null)
+            localStorage.setItem('partnerName', null)
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+.option-content{
+    border: 5px var(--main-text) dashed;
+    height: 85vh;
+}
+
+.radioOption{
+    display: none;
+}
+
+.radioOption:hover + .radioLabel{
+    background-color: var(--btnClick);
+    color: white;
+}
+
+.radioLabel{
+    background-color: var(--btn);
+    font-size: 20px;
+    border-radius:5px ;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+#make-done{
+    background-color: var(--btn);
+}
+
+#make-done a{
+    color: black;
+}
+
+#make-done:hover{
+    background-color: var(--btnClick);
+    color: white;
+}
+
+#make-done:hover a{
+    color: white;
+}

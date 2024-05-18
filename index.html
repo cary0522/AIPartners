@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5292bd8fe4.js" crossorigin="anonymous"></script>
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Bungee+Shade&family=Caveat+Brush&family=Comic+Neue:wght@300&family=Concert+One&family=Darumadrop+One&family=Fugaz+One&family=Itim&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nanum+Pen+Script&family=Noto+Sans+TC:wght@100..900&family=Protest+Riot&family=Rubik+Doodle+Shadow&family=Share+Tech+Mono&display=swap');
+
+        body {
+            font-family: "Darumadrop One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style> -->
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="header-page"></div>
+    <div class="homepage container-fluid p-2">
+        <div class="homepage-part1 container-fluid d-flex justify-content-between my-2">
+            <div class="container col-4 d-flex flex-column justify-content-between mx-auto my-2 d-none d-lg-block p-0">
+                <div class="container-fluid animal-photo p-0 mx-0 my-3">
+                    <img class="img-fluid" src="https://picsum.photos/id/40/200/200" alt="">
+                </div>
+                <div class="container-fluid animal-photo p-0 mx-0 my-3">
+                    <img class="img-fluid" src="https://picsum.photos/id/169/200/200" alt="">
+                </div>
+                <div class="container-fluid animal-photo p-0 mx-0 my-3">
+                    <img class="img-fluid" src="https://picsum.photos/id/200/200/200" alt="">
+                </div>
+            </div>
+            <div
+                class="container col-12 col-md-8 col-lg-4 d-flex justify-content-center mx-auto my-2 align-self-center">
+                <div class="iphone bg-white w-100 position-relative">
+                    <div class="d-flex justify-content-between px-3 py-1">
+                        <div>
+                            <p>AI partners</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-wifi mx-1"></i>
+                            <i class="fa-solid fa-signal mx-1"></i>
+                            <i class="fa-solid fa-battery-full mx-1"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between py-3 my-2">
+                        <div class="iphone-pic ms-2">
+                            <img src="https://picsum.photos/id/433/40/40" alt="" class="rounded-circle flex-shrink-0">
+                        </div>
+                        <div class="me-auto position-relative">
+                            <p class="partner-text">嗨 ! 我是您的 AI 寵物 !</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between py-3 my-2">
+                        <div class="iphone-pic my-auto ms-2">
+                            <img src="https://picsum.photos/id/433/40/40" alt="" class="rounded-circle flex-shrink-0">
+                        </div>
+                        <div class="text-start me-auto position-relative">
+                            <p class="partner-text">您喜歡哪種寵物呢 ?</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between py-3 my-2">
+                        <div class="ms-auto iphone-text position-relative">
+                            <p class="user-text">我喜歡 ...</p>
+                        </div>
+                        <div class="iphone-pic me-2">
+                            <img src="https://picsum.photos/id/278/40/40" alt="" class="rounded-circle">
+                        </div>
+                    </div>
+                    <div class="px-2 w-100 d-flex position-absolute enter-content">
+                        <div class="bg-secondary-subtle m-1 w-100 rounded text-start ps-2 py-1 text-secondary">Aa</div>
+                        <i class="fa-solid fa-paper-plane ms-auto my-auto"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="container col-4 d-flex flex-column justify-content-between mx-auto my-2 d-none d-lg-block p-0">
+                <div class="container-fluid animal-photo p-0 mx-0 my-3">
+                    <img class="img-fluid" src="https://picsum.photos/id/433/200/200" alt="">
+                </div>
+                <div class="container-fluid animal-photo p-0 mx-0 my-3">
+                    <img class="img-fluid" src="https://picsum.photos/id/577/200/200" alt="">
+                </div>
+                <div class="container-fluid animal-photo p-0 mx-0 my-3">
+                    <img class="img-fluid" src="https://picsum.photos/id/582/200/200" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="homepage-part2 container-fluid text-center my-5">
+            <h1>客製化選項</h1>
+            <h5>You can make me ...</h5>
+            <div class="d-flex flex-column flex-lg-row justify-content-between">
+                <div class="col-10 col-lg-6 mx-auto">
+                    <h2>特質選項</h2>
+                    <h5>About Traits</h5>
+                    <div class="container col-10 p-3 my-auto d-flex justify-content-between">
+                        <button class="btn options-btn" id="btn-traits-left">
+                            <i class="fa-solid fa-chevron-left options-i"></i>
+                        </button>
+                        <div class="options d-flex flex-column justify-content-evenly px-3 rounded" id="traits-content">
+                            <div class="rounded py-2 clip-card" id="trait-up">活潑</div>
+                            <h5>或是</h5>
+                            <div class="rounded py-2 clip-card" id="trait-down">安靜</div>
+                        </div>
+                        <button class="btn options-btn" id="btn-traits-right">
+                            <i class="fa-solid fa-chevron-right options-i"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-10 col-lg-6 mx-auto">
+                    <h2>外表選項</h2>
+                    <h5>About Appearance</h5>
+                    <div class="container col-10 p-3 my-auto d-flex justify-content-between">
+                        <button class="btn options-btn" id="btn-appearance-left">
+                            <i class="fa-solid fa-chevron-left options-i"></i>
+                        </button>
+                        <div class="options d-flex flex-column justify-content-evenly px-3 rounded"
+                            id="appearance-content">
+                            <div class="rounded py-2 clip-card" id="appearance-up">毛絨可愛風</div>
+                            <h5>或是</h5>
+                            <div class="rounded py-2 clip-card" id="appearance-down">現代機械風</div>
+                        </div>
+                        <button class="btn options-btn" id="btn-appearance-right">
+                            <i class="fa-solid fa-chevron-right options-i"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="homepage-part3 container-fluid text-center my-5">
+            <h1>互動選項</h1>
+            <h5>You can do with me ...</h5>
+            <div class="p-3">
+                <div class="container-fluid d-flex justify-content-center flex-wrap p-0">
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <div class="card-text mt-1">關心</div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                        <div class="card-text mt-1">零用錢</div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                        <div class="card-text mt-1">稱讚</div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-utensils"></i>
+                        <div class="card-text mt-1">餵食</div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-droplet"></i>
+                        <div class="card-text mt-1">喝水</div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-shower"></i>
+                        <div class="card-text mt-1">洗澡
+                        </div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <div class="card-text mt-1">玩耍</div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-person-walking"></i>
+                        <div class="card-text mt-1">散步</div>
+                    </div>
+                    <div class="m-2 py-4 col-3 options-behaviors card">
+                        <i class="fa-solid fa-toilet"></i>
+                        <div class="card-text mt-1">廁所</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid my-4">
+                <a href="./makepage.html" class="text-decoration-none p-3 btnStart link-dark rounded">開始製作我的寵物 ></a>
+        </div>
+    </div>
+
+    <div class="footer-page"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $('.header-page').load('header.html');
+        $('.footer-page').load('footer.html');
+
+        let traitList = ['活潑', '安靜', '感性', '理性', '謹慎', '挑戰', '戶外活動', '居家生活'];
+        let traitListStr = JSON.stringify(traitList);
+        localStorage.setItem('trait', traitListStr);
+        // console.log(localStorage.getItem('trait'));
+        let appearanceList = ['毛絨可愛風', '現代機械風', '大眼睛', '小眼睛', '大耳朵', '小耳朵', '身強體壯', '瘦小可愛'];
+        let appearanceListStr = JSON.stringify(appearanceList);
+        localStorage.setItem('appearance', appearanceListStr);
+        // console.log(localStorage.getItem('appearance'));
+
+        let btnTraitsLeft = document.getElementById('btn-traits-left');
+        let traitsContent = document.getElementById('traits-content');
+        let btnTraitsRight = document.getElementById('btn-traits-right');
+        let traitUp = document.getElementById('trait-up');
+        let traitDown = document.getElementById('trait-down');
+
+
+        btnTraitsLeft.addEventListener('click', function () {
+            let traitUp = document.getElementById('trait-up');
+            let traitDown = document.getElementById('trait-down');
+            for (let n = 0; n < traitList.length; n++) {
+                if (traitUp.textContent == traitList[n] && n == 0) {
+                    traitsContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="trait-up">${traitList[6]}</div>
+                        <h5>或是</h5>
+                    <div class="rounded py-2 clip-card" id="trait-down">${traitList[7]}</div>`
+                } else if (traitUp.textContent == traitList[n]) {
+                    traitsContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="trait-up">${traitList[n-2]}</div>
+                            <h5>或是</h5>
+                        <div class="rounded py-2 clip-card" id="trait-down">${traitList[n-1]}</div>`
+                }
+            }
+        })
+
+        btnTraitsRight.addEventListener('click', function () {
+            let traitUp = document.getElementById('trait-up');
+            let traitDown = document.getElementById('trait-down');
+            for (let n = 0; n < traitList.length; n++) {
+                if (traitUp.textContent == traitList[n] && n == 6) {
+                    traitsContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="trait-up">${traitList[0]}</div>
+                        <h5>或是</h5>
+                    <div class="rounded py-2 clip-card" id="trait-down">${traitList[1]}</div>`
+                } else if (traitUp.textContent == traitList[n]) {
+                    traitsContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="trait-up">${traitList[n+2]}</div>
+                        <h5>或是</h5>
+                    <div class="rounded py-2 clip-card" id="trait-down">${traitList[n+3]}</div>`
+                }
+            }
+        })
+
+        let btnAppearanceLeft = document.getElementById('btn-appearance-left');
+        let appearanceContent = document.getElementById('appearance-content');
+        let btnAppearanceRight = document.getElementById('btn-appearance-right');
+
+        btnAppearanceLeft.addEventListener('click', function () {
+            let appearanceUp = document.getElementById('appearance-up');
+            let appearanceDown = document.getElementById('appearance-down');
+            for (let n = 0; n < appearanceList.length; n++) {
+                if (appearanceUp.textContent == appearanceList[n] && n == 0) {
+                    appearanceContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[6]}</div>
+                        <h5>或是</h5>
+                    <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[7]}</div>`
+                } else if (appearanceUp.textContent == appearanceList[n]) {
+                    appearanceContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[n-2]}</div>
+                            <h5>或是</h5>
+                        <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[n-1]}</div>`
+                }
+            }
+        })
+
+        btnAppearanceRight.addEventListener('click', function () {
+            let appearanceUp = document.getElementById('appearance-up');
+            let appearanceDown = document.getElementById('appearance-down');
+            for (let n = 0; n < appearanceList.length; n++) {
+                if (appearanceUp.textContent == appearanceList[n] && n == 6) {
+                    appearanceContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[0]}</div>
+                        <h5>或是</h5>
+                    <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[1]}</div>`
+                } else if (appearanceUp.textContent == appearanceList[n]) {
+                    appearanceContent.innerHTML =
+                        `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[n+2]}</div>
+                            <h5>或是</h5>
+                        <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[n+3]}</div>`
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
