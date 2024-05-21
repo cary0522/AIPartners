@@ -10,9 +10,18 @@
     box-shadow: 0 0 5px rgb(215, 194, 194);
 }
 
+.textContainer{
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
 .partner-text,
 .user-text {
-    padding: 10px;
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: var(--main);
     border-radius: 25px;
 }
@@ -36,6 +45,34 @@
     left: 2px;
 }
 
+.textOne::after{
+    content: '';
+    border-left:1px solid gray;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: var(--main);
+    width: 95%;
+    height: 60%;
+    position: absolute;
+    top:5px;
+    right: 0;
+    animation: typeWrite 3s steps(10) 1 forwards , blank .5s steps(9) infinite forwards;
+}
+.textTwo::after{
+    content: '';
+    border-left:1px solid transparent;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: var(--main);
+    width: 80%;
+    height: 60%;
+    position: absolute;
+    top:5px;
+    left: 30px;
+    right: 0;
+    animation: typeWrite 3s 3s steps(9) 1 forwards , blank .5s 3s steps(8) infinite forwards;
+}
+
 .user-text::before {
     content: '';
     border-top: 10px solid transparent;
@@ -46,6 +83,52 @@
     right: 2px;
     top: 10px;
 }
+
+.textThree::after{
+    content: '';
+    border-left:1px solid transparent;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: var(--main);
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    top:5px;
+    left: 30px;
+    right: 0;
+    animation: typeWriteRight 2s 6s steps(4) 1 forwards , blank .5s 6s steps(3) infinite forwards;
+}
+
+@keyframes typeWrite{
+    0%{
+        left:30px;
+        width:95%
+    }
+    1%{
+        width: 80%;
+    }
+    100%{
+        left: 100%;
+        width: 0;
+    }
+}
+
+@keyframes typeWriteRight{
+    0%{
+        left:35%;
+        width:50%;
+    }
+    100%{
+        left: 80%;
+        width: 0;
+    }
+}
+
+@keyframes blank{
+    from{border-left:solid 1px gary}
+    to{border-left:solid 1px transparent}
+}
+
 
 .enter-content {
     bottom: 8px;
@@ -79,10 +162,15 @@
     }
 }
 
+.options-behaviors{
+    background-color: rgba(255, 238, 238, 0.627);
+    border-radius: 50%;
+}
+
 .options-behaviors:hover {
     animation: card-hover .5s linear;
     background-color: var(--main-text);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .options-behaviors:hover>i {

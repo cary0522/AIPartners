@@ -8,20 +8,72 @@
 }
 
 .radioOption:hover + .radioLabel{
-    background-color: var(--btnClick);
+    background-color: var(--btn);
     color: white;
 }
 
 .radioLabel{
+    font-size: 40px;
     background-color: var(--btn);
-    font-size: 20px;
-    border-radius:5px ;
+    border-radius:5px;
     padding-left:20px;
     padding-right:20px;
     padding-top: 10px;
     padding-bottom: 10px;
-
 }
+
+.orContent{
+    font-size: 40px;
+    align-content: center;
+}
+
+@keyframes flipCard {
+    0%{
+        transform: rotateY(270deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+
+.radioLabelFlip{
+    animation: flipCard .8s ease-in-out;
+}
+
+@keyframes checkedTrait {
+    0%{
+        transform: translate(15px,-200px);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+@keyframes checkedAppearance {
+    0%{
+        transform: translate(-15px,-200px);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+.checkedOption{
+    background-color: var(--btn);
+    font-size: 18px;
+    border-radius: 25%;
+    line-height: 100%;
+    height: fit-content;
+}
+
+.checkedTrait{
+    animation: checkedTrait .5s ease-in;
+}
+
+.checkedAppearance{
+    animation: checkedAppearance .5s ease-in;
+}
+
 
 #make-done{
     background-color: var(--btn);
@@ -39,3 +91,19 @@
 #make-done:hover a{
     color: white;
 }
+
+/* @media screen and (min-width:) {
+    .radioLabel{
+        /* font-size: 55px; */
+    /* width: 80%;
+    height: 300px;
+    writing-mode: vertical-lr;
+    align-content: center; */
+    /* } */
+
+    /* .orContent{
+    /* font-size: 70px; */
+    /* writing-mode: vertical-lr; */ 
+    /* } */
+    
+/* } */

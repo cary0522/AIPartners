@@ -15,9 +15,23 @@
 <body>
     <div class="header-page"></div>
     <div class="makepage container-fluid d-flex justify-content-center p-3">
-        <div class="option-content col-8 p-3">
+        <div class="option-content col-9 col-lg-8 p-3">
             <h1 id="makePart">選擇寵物特質</h1>
-            <div class="col-12 m-2 p-5 align-self-center d-lg-flex" id="make-content"></div>
+            <div class="col-12 my-2 mx-auto py-5 px-2 align-self-center d-lg-flex" id="make-content"></div>
+            <div class="col-12 my-2 mx-auto py-3 px-2 justify-content-between d-flex">
+                <div class="col-6 row justify-content-center">
+                    <div class="traitCard rounded "></div>
+                    <div class="traitCard rounded "></div>
+                    <div class="traitCard rounded "></div>
+                    <div class="traitCard rounded "></div>
+                </div>
+                <div class="col-6 row justify-content-center">
+                    <div class="appearanceCard rounded "></div>
+                    <div class="appearanceCard rounded "></div>
+                    <div class="appearanceCard rounded "></div>
+                    <div class="appearanceCard rounded "></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer-page"></div>
@@ -39,6 +53,31 @@
         let traitArr = [];
         let appearanceArr = [];
 
+
+        function traitCardContent() {
+            for (let i = 0; i < traitArr.length; i++) {
+                let traitCard = document.querySelectorAll('.traitCard')
+                traitCard[i].innerText = traitArr[i]
+                traitCard[i].classList += 'px-1 py-2 m-1 fs-4 col-12 col-lg-6 checkedOption'
+                traitCard[i].classList.add('checkedTrait')
+                for (let j = 0; j < i; j++) {
+                        traitCard[j].classList.remove('checkedTrait')
+                }
+            }
+        }
+
+        function appearanceCardContent() {
+            for (let i = 0; i < appearanceArr.length; i++) {
+                let appearanceCard = document.querySelectorAll('.appearanceCard')
+                appearanceCard[i].innerText = appearanceArr[i]
+                appearanceCard[i].classList += 'px-1 py-2 m-1 fs-4 col-12 col-lg-6 checkedOption '
+                appearanceCard[i].classList.add('checkedAppearance')
+                for (let j = 0; j < i; j++) {
+                        appearanceCard[j].classList.remove('checkedAppearance')
+                }
+            }
+        }
+
         let makePart = document.getElementById('makePart');
         let makeContent = document.getElementById('make-content');
 
@@ -47,12 +86,24 @@
                     <input type="radio" id="trait-left" name='option' class="col-6 radioOption" value='${traitList[0]}'>
                     <label for='trait-left' id='trait-left' class='radioLabel'>${traitList[0]}</label>
                 </div>
-                <p class='col'>或是</p>
+                <p class='col orContent'>或是</p>
                 <div class='col'>
                     <input type="radio" id="trait-right" name='option' class="col-6 radioOption" value='${traitList[1]}'>
                     <label for='trait-right' id='trait-right' class='radioLabel'>${traitList[1]}</label>
                 </div>
         `
+
+        function addFlipCard() {
+            let radioLabel = document.querySelectorAll('.radioLabel')
+            radioLabel[0].classList.add('radioLabelFlip')
+            radioLabel[1].classList.add('radioLabelFlip')
+        }
+
+        function removeFlipCard() {
+            let radioLabel = document.querySelectorAll('.radioLabel')
+            radioLabel[0].classList.remove('radioLabelFlip')
+            radioLabel[1].classList.remove('radioLabelFlip')
+        }
 
         function traitClip(e) {
             let n = traitList.indexOf(e.value)
@@ -61,12 +112,23 @@
                 let traitArrStr = JSON.stringify(traitArr);
                 localStorage.setItem('partnerTrait', traitArrStr);
                 appearancePart()
+                addFlipCard()
+                setTimeout(() => {
+                    removeFlipCard()
+                }, 500)
+                traitCardContent()
+
             } else {
                 traitArr.push(traitList[n])
                 e.value = `${traitList[n+2]}`
                 let labelWay = e.nextElementSibling
                 labelWay.innerText = `${traitList[n+2]}`
                 e.checked = false
+                addFlipCard()
+                setTimeout(() => {
+                    removeFlipCard()
+                }, 500)
+                traitCardContent()
             }
         }
 
@@ -95,7 +157,7 @@
                     <input type="radio" id="appearance-left" name='option' class="col-6 radioOption" value='${appearanceList[0]}'>
                     <label for='appearance-left' id='appearance-left' class='radioLabel'>${appearanceList[0]}</label>
                 </div>
-                <p class='col'>或是</p>
+                <p class='col orContent'>或是</p>
                 <div class='col'>
                     <input type="radio" id="appearance-right" name='option' class="col-6 radioOption" value='${appearanceList[1]}'>
                     <label for='appearance-right' id='appearance-right' class='radioLabel'>${appearanceList[1]}</label>
@@ -109,12 +171,18 @@
                     let appearanceArrStr = JSON.stringify(appearanceArr);
                     localStorage.setItem('partnerAppearance', appearanceArrStr);
                     naming()
+                    appearanceCardContent()
                 } else {
                     appearanceArr.push(appearanceList[k])
                     e.value = `${appearanceList[k+2]}`
                     let labelWay = e.nextElementSibling
                     labelWay.innerText = `${appearanceList[k+2]}`
                     e.checked = false
+                    addFlipCard()
+                    setTimeout(() => {
+                        removeFlipCard()
+                    }, 500)
+                    appearanceCardContent()
                 }
             }
 
@@ -153,9 +221,9 @@
             makeDone.addEventListener('click', function () {
                 let nameText = document.getElementById('name-text').value;
                 localStorage.setItem('partnerName', nameText);
+
             })
         }
-        
     </script>
 </body>
 
