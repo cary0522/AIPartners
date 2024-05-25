@@ -12,9 +12,19 @@
 </head>
 
 <body>
-    <div id="popLayer"></div>
     <div class="header-page"></div>
-
+    <div class="modal fade" data-bs-backdrop="static" tabindex="-1" id="liveModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <p class="pt-3 mx-1 fs-3">喜歡您的寵物嗎？</p>
+                <p class="pb-3 mx-1 fs-3">一起來解鎖更多寵物！</p>
+                <div class="modal-footer d-flex justify-content-evenly py-3">
+                    <button class="btn border rounded" type="button" data-bs-dismiss="modal">稍後解鎖</button>
+                    <a href="./premiumpage.html" class="btn border rounded">前往解鎖</a>
+                </div>
+            </div>
+        </div>
+</div>
     <div class="partnerspage container-fluid">
         <div class="grid-container">
             <div class="grid-item grid-item1">
@@ -34,16 +44,7 @@
                     <h2 class="py-3">
                         來跟你的夥伴互動吧！
                     </h2>
-                    <div class="toast-container translate-middle start-50">
-                        <div class="toast" role="alert" id="liveToast" data-bs-autohide="false">
-                            <p class="pt-3 mx-1 fs-3">喜歡您的寵物嗎？</p>
-                            <p class="border-bottom pb-3 mx-1 fs-3">一起來解鎖更多寵物！</p>
-                            <div class="d-flex justify-content-evenly py-3">
-                                <button class="btn border rounded" data-bs-dismiss="toast" id="btn-close">稍後解鎖</button>
-                                <a href="./premiumpage.html" class="btn border rounded">前往解鎖</a>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="container col-12 col-lg-8 mx-auto my-2">
                         <div class="iphone bg-white w-100 position-relative">
@@ -110,7 +111,6 @@
             </div>
 
             <div class="grid-item grid-item3">
-                <h4 class="py-3 mt-3">互動成就</h4>
                 <div class="container-fluid py-2 d-flex flex-wrap">
                     <div class="col-12 p-2 achievement-progress progress-love">
                         <div class="card">
@@ -326,22 +326,22 @@
         if (partnerTraitArr[0] == '活潑') {
             feedback[0] = '耶！我最喜歡您！'
         } else {
-            feedback[0] = '謝謝您的幫忙'
+            feedback[0] = '謝謝您總是協助我'
         }
         if (partnerTraitArr[1] == '理性') {
-            feedback[1] = '謝謝您提供我必要的協助'
+            feedback[1] = '請提供我必要協助'
         } else {
             feedback[1] = '謝謝您，我好感動'
         }
         if (partnerTraitArr[2] == '謹慎') {
-            feedback[2] = '謝謝您，但請小心點，別受傷了'
+            feedback[2] = '小心點，別受傷了'
         } else {
-            feedback[2] = '耶！超刺激！我喜歡！'
+            feedback[2] = '超刺激！我喜歡！'
         }
         if (partnerTraitArr[3] == '戶外活動') {
-            feedback[3] = '帶我出去走走吧'
+            feedback[3] = '帶我去戶外走走吧'
         } else {
-            feedback[3] = '讓我們一起待在家吧'
+            feedback[3] = '我們一起待在家吧'
         }
 
         console.log(feedback);
@@ -351,10 +351,6 @@
         let cardTimes = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         let achi = document.getElementById('achi')
 
-        let popLayer = document.getElementById('popLayer')
-        popLayer.style.width = document.body.scrollWidth + 'px'
-        popLayer.style.height = (document.body.scrollHeight + 200) + 'px'
-
         function progressBarWidth(e) {
             let n = behaviors.indexOf(e.innerText)
             let progressBar = document.getElementsByClassName('progress-bar')
@@ -363,41 +359,34 @@
             achievementProgress[n].style.display = 'block'
             setTimeout(() => {
                 achievementProgress[n].style.display = 'none'
-            }, 4000)
+            }, 3000)
             progressBar[n].style.width = cardTimes[n] * 20 + '%'
             let randomNum = Math.floor(Math.random() * feedback.length)
             interactivePartnerFeedback.innerHTML += `
                         <div class="d-flex justify-content-between">
                             <div class="ms-5 position-relative">
-                                <p class="partner-text textOne">${feedback[randomNum]}</p>
+                                <p class="partner-text textFeedback">${feedback[randomNum]}</p>
                             </div>
                         </div>
                         `
             interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
 
 
-            let textOne = document.querySelectorAll('.textOne')
+            let textFeedback = document.querySelectorAll('.textFeedback')
             setTimeout(() => {
-                textOne[0].classList.remove('textOne')
+                textFeedback[0].classList.remove('textFeedback')
             }, 3000)
 
             let sum = 0
             cardTimes.forEach((x) => {
                 sum += x
             })
-            let liveToast = document.querySelector('#liveToast')
-            const toast = new bootstrap.Toast(liveToast)
+            let liveModal = document.querySelector('#liveModal')
+            const modal = new bootstrap.Modal(liveModal)
             if (sum == 5) {
-                toast.show()
-                popLayer.style.display = 'block'
+                modal.show()
             }
         }
-
-        let btnClose = document.getElementById('btn-close')
-        btnClose.addEventListener('click', () => {
-            let popLayer = document.getElementById('popLayer')
-            popLayer.style.display = 'none'
-        })
 
         let card = document.querySelectorAll('.options-behaviors')
         for (let i = 0; i < behaviors.length; i++) {
@@ -406,177 +395,7 @@
             })
         }
 
-
-
-        // let loveCard = document.getElementById('love-card');
-        // let loveProgressBar = document.getElementById('love-progress-bar');
-        // let loveTimes = 0;
-        // loveCard.addEventListener('click', function () {
-        //     loveTimes += 1;
-        //     let loveAchievement = loveTimes * 20 + '%';
-        //     loveProgressBar.style.width = loveAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length)
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let moneyCard = document.getElementById('money-card');
-        // let moneyProgressBar = document.getElementById('money-progress-bar');
-        // let moneyTimes = 0;
-        // moneyCard.addEventListener('click', function () {
-        //     moneyTimes += 1;
-        //     let moneyAchievement = moneyTimes * 20 + '%';
-        //     moneyProgressBar.style.width = moneyAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let commandCard = document.getElementById('command-card');
-        // let commandProgressBar = document.getElementById('command-progress-bar');
-        // let commandTimes = 0;
-        // commandCard.addEventListener('click', function () {
-        //     commandTimes += 1;
-        //     let commandAchievement = commandTimes * 20 + '%';
-        //     commandProgressBar.style.width = commandAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let eatingCard = document.getElementById('eating-card');
-        // let eating = document.getElementById('eating-progress-bar');
-        // let eatingTimes = 0;
-        // eatingCard.addEventListener('click', function () {
-        //     eatingTimes += 1;
-        //     let eatingAchievement = eatingTimes * 20 + '%';
-        //     eating.style.width = eatingAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let waterCard = document.getElementById('water-card');
-        // let waterProgressBar = document.getElementById('water-progress-bar');
-        // let waterTimes = 0;
-        // waterCard.addEventListener('click', function () {
-        //     waterTimes += 1;
-        //     let waterAchievement = waterTimes * 20 + '%';
-        //     waterProgressBar.style.width = waterAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let washCard = document.getElementById('wash-card');
-        // let washProgressBar = document.getElementById('wash-progress-bar');
-        // let wash = 0;
-        // washCard.addEventListener('click', function () {
-        //     wash += 1;
-        //     let washAchievement = moneyTimes * 20 + '%';
-        //     washProgressBar.style.width = washAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let playCard = document.getElementById('play-card');
-        // let playProgressBar = document.getElementById('play-progress-bar');
-        // let playTimes = 0;
-        // playCard.addEventListener('click', function () {
-        //     playTimes += 1;
-        //     let playAchievement = playTimes * 20 + '%';
-        //     playProgressBar.style.width = playAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let handOutCard = document.getElementById('hand-out-card');
-        // let handOutProgressBar = document.getElementById('hand-out-progress-bar');
-        // let handOutTimes = 0;
-        // handOutCard.addEventListener('click', function () {
-        //     handOutTimes += 1;
-        //     let handOutAchievement = handOutTimes * 20 + '%';
-        //     handOutProgressBar.style.width = handOutAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
-        // let toiletCard = document.getElementById('toilet-card');
-        // let toiletProgressBar = document.getElementById('toilet-progress-bar');
-        // let toiletTimes = 0;
-        // toiletCard.addEventListener('click', function () {
-        //     toiletTimes += 1;
-        //     let toiletAchievement = toiletTimes * 20 + '%';
-        //     toiletProgressBar.style.width = toiletAchievement;
-        //     let randomNum = Math.floor(Math.random() * feedback.length);
-
-        //     interactivePartnerFeedback.innerHTML += `
-        //     <div class="d-flex justify-content-between">
-        //         <div class="ms-5 position-relative">
-        //             <p class="partner-text">${feedback[randomNum]}</p>
-        //         </div>
-        //     </div>
-        //     `
-        //     interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-        // })
-
+        // 清空localStorage
         let btnClear = document.getElementById('clear')
         btnClear.addEventListener('click', function () {
             console.log(clear)

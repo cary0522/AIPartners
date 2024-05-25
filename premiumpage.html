@@ -14,33 +14,105 @@
 
 <body>
     <div class="header-page"></div>
-    <div class="premiumpage container-fluid d-md-flex p-2">
-        <div class="plan plan-ones rounded mb-3 p-2 mx-md-auto mx-lg-5 my-md-3 col-md-5">
+    <div class="premiumpage container-fluid d-md-p-2 ">
+        <div class="plan plan-ones rounded my-3 p-2 mx-auto col-12">
             <h3 class="my-1">解鎖夥伴</h3>
             <h5></h5>
-            <div class="d-flex justify-content-evenly">
-                <div class="pet-card position-relative">
+            <div class="row flex-wrap justify-content-evenly">
+                <div class="pet-card position-relative col-6 col-md-4 col-xl-2 my-2">
                     <div class="position-absolute pet-card-lock">
                         <i class="fa-solid fa-lock fa-5x"></i>
                     </div>
-                    <img src="https://picsum.photos/id/40/150/200" alt="" class="pet-card-img p-1">
-                    <div class="">
-                        <p class="card-text my-1">
-                            <span>40</span>
-                            <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
-                        </p>
+                    <div class="card">
+                        <img src="./partners_photo/0011.jpg" alt="" class="pet-card-img p-1 card-img-top">
+                        <div class="card-body">
+                            <p class="card-text my-1">
+                                <small class="">毛絨可愛、大眼睛、小耳朵的可愛寵物</small>
+                                <br>
+                                <span>40</span>
+                                <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="pet-card position-relative">
+                <div class="pet-card position-relative col-6 col-md-4 col-xl-2 my-2">
                     <div class="position-absolute pet-card-lock">
                         <i class="fa-solid fa-lock fa-5x"></i>
                     </div>
-                    <img src="https://picsum.photos/id/40/150/200" alt="" class="pet-card-img p-1">
-                    <div class="">
-                        <p class="card-text my-1">
-                            <span>50</span>
-                            <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
-                        </p>
+                    <div class="card">
+                        <img src="./partners_photo/1100.jpg" alt="" class="pet-card-img p-1 card-img-top">
+                        <div class="card-body">
+                            <p class="card-text my-1">
+                                <small class="">現代機械、小眼睛、大耳朵的強壯寵物</small>
+                                <br>
+                                <span>50</span>
+                                <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pet-card position-relative col-6 col-md-4 col-xl-2 my-2">
+                    <div class="position-absolute pet-card-lock">
+                        <i class="fa-solid fa-lock fa-5x"></i>
+                    </div>
+                    <div class="card">
+                        <img src="./partners_photo/0101.jpg" alt="" class="pet-card-img p-1 card-img-top">
+                        <div class="card-body">
+                            <p class="card-text my-1">
+                                <small class="">毛絨可愛、小眼睛、大耳朵的可愛寵物</small>
+                                <br>
+                                <span>40</span>
+                                <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pet-card position-relative col-6 col-md-4 col-xl-2 my-2">
+                    <div class="position-absolute pet-card-lock">
+                        <i class="fa-solid fa-lock fa-5x"></i>
+                    </div>
+                    <div class="card">
+                        <img src="./partners_photo/1010.jpg" alt="" class="pet-card-img p-1 card-img-top">
+                        <div class="card-body">
+                            <p class="card-text my-1">
+                                <small class="">現代機械、大眼睛、小耳朵的強壯寵物</small>
+                                <br>
+                                <span>50</span>
+                                <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pet-card position-relative col-6 col-md-4 col-xl-2 my-2">
+                    <div class="position-absolute pet-card-lock">
+                        <i class="fa-solid fa-lock fa-5x"></i>
+                    </div>
+                    <div class="card">
+                        <img src="./partners_photo/0001.jpg" alt="" class="pet-card-img p-1 card-img-top">
+                        <div class="card-body">
+                            <p class="card-text my-1">
+                                <small class="">毛絨可愛、大眼睛、大耳朵的可愛寵物</small>
+                                <br>
+                                <span>40</span>
+                                <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pet-card position-relative col-6 col-md-4 col-xl-2 my-2">
+                    <div class="position-absolute pet-card-lock">
+                        <i class="fa-solid fa-lock fa-5x"></i>
+                    </div>
+                    <div class="card">
+                        <img src="./partners_photo/1110.jpg" alt="" class="pet-card-img p-1 card-img-top">
+                        <div class="card-body">
+                            <p class="card-text my-1">
+                                <small class="">現代機械、小眼睛、小耳朵的強壯寵物</small>
+                                <br>
+                                <span>50</span>
+                                <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,21 +177,28 @@
         let petCard = document.querySelectorAll('.pet-card');
         let petCardLock = document.querySelectorAll('.pet-card-lock');
         let petCardImg = document.querySelectorAll('.pet-card-img');
-        petCard[0].addEventListener('mouseenter', function () {
-            petCardLock[0].innerHTML = `<i class='fa-solid fa-lock-open fa-5x'></i>`
-            petCardImg[0].style = 'filter: blur(0px);'
-        })
-        petCard[1].addEventListener('mouseenter', function () {
-            petCardLock[1].innerHTML = `<i class='fa-solid fa-lock-open fa-5x'></i>`
-            petCardImg[1].style = 'filter: blur(0px);'
-        })
-        petCard[0].addEventListener('mouseleave', function () {
-            petCardLock[0].innerHTML = `<i class='fa-solid fa-lock fa-5x'></i>`
-            petCardImg[0].style = 'filter: blur(5px);'
-        })
-        petCard[1].addEventListener('mouseleave', function () {
-            petCardLock[1].innerHTML = `<i class='fa-solid fa-lock fa-5x'></i>`
-            petCardImg[1].style = 'filter: blur(5px);'
-        })
+
+        function cardMouseenter(e) {
+            e.firstElementChild.innerHTML = `<i class='fa-solid fa-lock-open fa-5x'></i>`
+            e.lastElementChild.firstElementChild.style = 'filter: blur(0px);'
+
+        }
+
+        for (i = 0; i < 6; i++) {
+            petCard[i].addEventListener('mouseenter', function () {
+                cardMouseenter(this)
+            })
+        }
+
+        function cardMouseleave(e) {
+            e.firstElementChild.innerHTML = `<i class='fa-solid fa-lock fa-5x'></i>`
+            e.lastElementChild.firstElementChild.style = 'filter: blur(5px);'
+        }
+
+        for (i = 0; i < 6; i++) {
+            petCard[i].addEventListener('mouseleave', function () {
+                cardMouseleave(this)
+            })
+        }
     </script>
 </body>

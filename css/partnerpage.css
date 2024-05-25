@@ -45,7 +45,7 @@
 
 .achievement-progress{
     display: none;
-    animation: displaySwitch 4s ease-in-out;
+    animation: displaySwitch 3s ease-in-out;
 }
 
 @keyframes displaySwitch {
@@ -69,4 +69,18 @@
     display: none;
     background-color: rgba(181, 169, 169, 0.539);
     z-index: 10;
+}
+
+.textFeedback::after{
+    content: '';
+    border-left:1px solid gray;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: var(--main);
+    width: 95%;
+    height: 60%;
+    position: absolute;
+    top:5px;
+    right: 0;
+    animation: typeWrite 3s steps(9) 1 forwards , blank .5s steps(8) infinite forwards;
 }
