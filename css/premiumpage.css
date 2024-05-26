@@ -16,6 +16,10 @@
     left: 30%;
 }
 
+input:invalid{
+    color: red;
+}
+
 .month-card{
     overflow-x: scroll;
 }
@@ -30,4 +34,9 @@
 
 .month-card:hover .month-card-blur{
     display: none;
+}
+
+.month-card-pet img{
+    max-width: 80%;
+    object-fit: contain;
 }
