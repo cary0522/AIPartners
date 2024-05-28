@@ -2,9 +2,9 @@
     border: 3px dashed black;
 }
 
-.plan-ones .pet-card-img{
+/* .plan-ones .pet-card-img{
     filter: blur(5px);
-}
+} */
 
 .pet-card-img{
     border-radius: 100px;
@@ -12,12 +12,24 @@
 
 .pet-card-lock{
     z-index: 1;
-    top: 30%;
-    left: 30%;
+    top: 15%;
+    left: 38%;
 }
 
 input:invalid{
     color: red;
+}
+
+#submitText small{
+    font-size: 12px;
+}
+
+#submitText .fa-cart-plus{
+    color: gray;
+}
+
+#submitText:hover .fa-cart-plus{
+    color: white;
 }
 
 .month-card{
