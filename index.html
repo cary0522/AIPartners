@@ -72,7 +72,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="container col-4 d-flex flex-column justify-content-between m-0 d-none d-lg-block p-0 position-relative">
                             <div class="container-fluid animal-photo my-5 photo-animation">
                                 <img class="img-fluid" src="./partners_photo/1000.jpg" alt="">
@@ -91,42 +90,41 @@
             <div class="homepage-part2 container-fluid text-center my-5">
                 <h1>客製化選項</h1>
                 <h5>You can make me ...</h5>
-                <div class="d-flex flex-column flex-lg-row justify-content-between">
-                    <div class="col-10 col-lg-6 mx-auto">
-                        <h2>特質選項</h2>
-                        <h5>About Traits</h5>
-                        <div class="container col-10 p-3 my-auto d-flex justify-content-between">
-                            <button class="btn options-btn" id="btn-traits-left">
-                                <i class="fa-solid fa-chevron-left options-i"></i>
-                            </button>
-                            <div class="options d-flex flex-column justify-content-evenly px-3 rounded"
-                                id="traits-content">
-                                <div class="rounded py-2 clip-card" id="trait-up">活潑</div>
-                                <h5>或是</h5>
-                                <div class="rounded py-2 clip-card" id="trait-down">安靜</div>
-                            </div>
-                            <button class="btn options-btn" id="btn-traits-right">
-                                <i class="fa-solid fa-chevron-right options-i"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-10 col-lg-6 mx-auto">
+                <div class="d-flex flex-column flex-lg-row justify-content-center">
+                    <div class="col-12 col-lg-6 mx-auto">
                         <h2>外表選項</h2>
                         <h5>About Appearance</h5>
-                        <div class="container col-10 p-3 my-auto d-flex justify-content-between">
-                            <button class="btn options-btn" id="btn-appearance-left">
-                                <i class="fa-solid fa-chevron-left options-i"></i>
-                            </button>
-                            <div class="options d-flex flex-column justify-content-evenly px-3 rounded"
+                        <div class="container col-12 p-3 my-auto d-flex justify-content-between">
+                            <img src="./0011.nobackground.png" alt="" class="w-25 homeImg">
+                            <div class="options d-flex flex-wrap justify-content-evenly px-1 rounded"
                                 id="appearance-content">
-                                <div class="rounded py-2 clip-card" id="appearance-up">毛絨可愛</div>
-                                <h5>或是</h5>
-                                <div class="rounded py-2 clip-card" id="appearance-down">現代機械</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >毛絨可愛</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >現代機械</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >大眼睛</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >小眼睛</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >大耳朵</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >小耳朵</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >身強體壯</div>
+                                <div class="rounded py-1 m-1 clip-card col-5" >瘦小可愛</div>
                             </div>
-                            <button class="btn options-btn" id="btn-appearance-right">
-                                <i class="fa-solid fa-chevron-right options-i"></i>
-                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mx-auto">
+                        <h2>特質選項</h2>
+                        <h5>About AppearanceTraits</h5>
+                        <div class="container col-12 p-3 my-auto d-flex justify-content-between">
+                            <img src="./1011.nobackground.png" alt="" class="w-25 homeImg">
+                            <div class="options d-flex flex-wrap justify-content-evenly px-1 rounded"
+                                id="appearance-contenttraits-content">
+                                <div class="rounded py-1 m-1 clip-card col-5">活潑</div>
+                                <div class="rounded py-1 m-1 clip-card col-5">安靜</div>
+                                <div class="rounded py-1 m-1 clip-card col-5">感性</div>
+                                <div class="rounded py-1 m-1 clip-card col-5">理性</div>
+                                <div class="rounded py-1 m-1 clip-card col-5">謹慎</div>
+                                <div class="rounded py-1 m-1 clip-card col-5">挑戰</div>
+                                <div class="rounded py-1 m-1 clip-card col-5">戶外活動</div>
+                                <div class="rounded py-1 m-1 clip-card col-5">居家生活</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -201,88 +199,88 @@
             localStorage.setItem('appearance', appearanceListStr);
             // console.log(localStorage.getItem('appearance'));
 
-            let btnTraitsLeft = document.getElementById('btn-traits-left');
-            let traitsContent = document.getElementById('traits-content');
-            let btnTraitsRight = document.getElementById('btn-traits-right');
-            let traitUp = document.getElementById('trait-up');
-            let traitDown = document.getElementById('trait-down');
+            // let btnTraitsLeft = document.getElementById('btn-traits-left');
+            // let traitsContent = document.getElementById('traits-content');
+            // let btnTraitsRight = document.getElementById('btn-traits-right');
+            // let traitUp = document.getElementById('trait-up');
+            // let traitDown = document.getElementById('trait-down');
 
 
-            btnTraitsLeft.addEventListener('click', function () {
-                let traitUp = document.getElementById('trait-up');
-                let traitDown = document.getElementById('trait-down');
-                for (let n = 0; n < traitList.length; n++) {
-                    if (traitUp.textContent == traitList[n] && n == 0) {
-                        traitsContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="trait-up">${traitList[6]}</div>
-                        <h5>或是</h5>
-                    <div class="rounded py-2 clip-card" id="trait-down">${traitList[7]}</div>`
-                    } else if (traitUp.textContent == traitList[n]) {
-                        traitsContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="trait-up">${traitList[n-2]}</div>
-                            <h5>或是</h5>
-                        <div class="rounded py-2 clip-card" id="trait-down">${traitList[n-1]}</div>`
-                    }
-                }
-            })
+            // btnTraitsLeft.addEventListener('click', function () {
+            //     let traitUp = document.getElementById('trait-up');
+            //     let traitDown = document.getElementById('trait-down');
+            //     for (let n = 0; n < traitList.length; n++) {
+            //         if (traitUp.textContent == traitList[n] && n == 0) {
+            //             traitsContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="trait-up">${traitList[6]}</div>
+            //             <h5>或是</h5>
+            //         <div class="rounded py-2 clip-card" id="trait-down">${traitList[7]}</div>`
+            //         } else if (traitUp.textContent == traitList[n]) {
+            //             traitsContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="trait-up">${traitList[n-2]}</div>
+            //                 <h5>或是</h5>
+            //             <div class="rounded py-2 clip-card" id="trait-down">${traitList[n-1]}</div>`
+            //         }
+            //     }
+            // })
 
-            btnTraitsRight.addEventListener('click', function () {
-                let traitUp = document.getElementById('trait-up');
-                let traitDown = document.getElementById('trait-down');
-                for (let n = 0; n < traitList.length; n++) {
-                    if (traitUp.textContent == traitList[n] && n == 6) {
-                        traitsContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="trait-up">${traitList[0]}</div>
-                        <h5>或是</h5>
-                    <div class="rounded py-2 clip-card" id="trait-down">${traitList[1]}</div>`
-                    } else if (traitUp.textContent == traitList[n]) {
-                        traitsContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="trait-up">${traitList[n+2]}</div>
-                        <h5>或是</h5>
-                    <div class="rounded py-2 clip-card" id="trait-down">${traitList[n+3]}</div>`
-                    }
-                }
-            })
+            // btnTraitsRight.addEventListener('click', function () {
+            //     let traitUp = document.getElementById('trait-up');
+            //     let traitDown = document.getElementById('trait-down');
+            //     for (let n = 0; n < traitList.length; n++) {
+            //         if (traitUp.textContent == traitList[n] && n == 6) {
+            //             traitsContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="trait-up">${traitList[0]}</div>
+            //             <h5>或是</h5>
+            //         <div class="rounded py-2 clip-card" id="trait-down">${traitList[1]}</div>`
+            //         } else if (traitUp.textContent == traitList[n]) {
+            //             traitsContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="trait-up">${traitList[n+2]}</div>
+            //             <h5>或是</h5>
+            //         <div class="rounded py-2 clip-card" id="trait-down">${traitList[n+3]}</div>`
+            //         }
+            //     }
+            // })
 
-            let btnAppearanceLeft = document.getElementById('btn-appearance-left');
-            let appearanceContent = document.getElementById('appearance-content');
-            let btnAppearanceRight = document.getElementById('btn-appearance-right');
+            // let btnAppearanceLeft = document.getElementById('btn-appearance-left');
+            // let appearanceContent = document.getElementById('appearance-content');
+            // let btnAppearanceRight = document.getElementById('btn-appearance-right');
 
-            btnAppearanceLeft.addEventListener('click', function () {
-                let appearanceUp = document.getElementById('appearance-up');
-                let appearanceDown = document.getElementById('appearance-down');
-                for (let n = 0; n < appearanceList.length; n++) {
-                    if (appearanceUp.textContent == appearanceList[n] && n == 0) {
-                        appearanceContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[6]}</div>
-                        <h5>或是</h5>
-                    <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[7]}</div>`
-                    } else if (appearanceUp.textContent == appearanceList[n]) {
-                        appearanceContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[n-2]}</div>
-                            <h5>或是</h5>
-                        <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[n-1]}</div>`
-                    }
-                }
-            })
+            // btnAppearanceLeft.addEventListener('click', function () {
+            //     let appearanceUp = document.getElementById('appearance-up');
+            //     let appearanceDown = document.getElementById('appearance-down');
+            //     for (let n = 0; n < appearanceList.length; n++) {
+            //         if (appearanceUp.textContent == appearanceList[n] && n == 0) {
+            //             appearanceContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[6]}</div>
+            //             <h5>或是</h5>
+            //         <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[7]}</div>`
+            //         } else if (appearanceUp.textContent == appearanceList[n]) {
+            //             appearanceContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[n-2]}</div>
+            //                 <h5>或是</h5>
+            //             <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[n-1]}</div>`
+            //         }
+            //     }
+            // })
 
-            btnAppearanceRight.addEventListener('click', function () {
-                let appearanceUp = document.getElementById('appearance-up');
-                let appearanceDown = document.getElementById('appearance-down');
-                for (let n = 0; n < appearanceList.length; n++) {
-                    if (appearanceUp.textContent == appearanceList[n] && n == 6) {
-                        appearanceContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[0]}</div>
-                        <h5>或是</h5>
-                    <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[1]}</div>`
-                    } else if (appearanceUp.textContent == appearanceList[n]) {
-                        appearanceContent.innerHTML =
-                            `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[n+2]}</div>
-                            <h5>或是</h5>
-                        <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[n+3]}</div>`
-                    }
-                }
-            })
+            // btnAppearanceRight.addEventListener('click', function () {
+            //     let appearanceUp = document.getElementById('appearance-up');
+            //     let appearanceDown = document.getElementById('appearance-down');
+            //     for (let n = 0; n < appearanceList.length; n++) {
+            //         if (appearanceUp.textContent == appearanceList[n] && n == 6) {
+            //             appearanceContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[0]}</div>
+            //             <h5>或是</h5>
+            //         <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[1]}</div>`
+            //         } else if (appearanceUp.textContent == appearanceList[n]) {
+            //             appearanceContent.innerHTML =
+            //                 `<div class="rounded py-2 clip-card" id="appearance-up">${appearanceList[n+2]}</div>
+            //                 <h5>或是</h5>
+            //             <div class="rounded py-2 clip-card" id="appearance-down">${appearanceList[n+3]}</div>`
+            //         }
+            //     }
+            // })
         </script>
 </body>
 

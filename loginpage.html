@@ -17,20 +17,30 @@
         <div class="mx-auto p-5 rounded" id="log-in">
             <div class="input-group my-5 mx-auto">
                 <span class="input-group-text">帳號</span>
-                <input type="email" class="form-control log-in-input rounded-end" placeholder="請輸入email" required autofocus>
+                <input type="email" value="abc@xxx.com" class="form-control log-in-input rounded-end" placeholder="請輸入email" id="email" required autofocus>
                 <p class="ms-2 mb-0 align-self-center"></p>
             </div>
             <div class="input-group my-5 mx-auto">
                 <span class="input-group-text">密碼</span>
-                <input type="password" class="form-control log-in-input rounded-end" placeholder="請輸入密碼" required>
+                <input type="password" value="1234" class="form-control log-in-input rounded-end" placeholder="請輸入密碼" id="password" required>
                 <p class="ms-2 mb-0 align-self-center"></p>
             </div>
             <div class="text-end mb-3">
                 <button class="btn text-danger" id="forget-password">忘記密碼</button>
             </div>
             <div class="row justify-content-evenly">
-                <button class="btn rounded-pill col-4 m-2" type="button">註冊</button>
-                <button class="btn rounded-pill col-4 m-2" type="button">登入</button>
+                <button class="btn rounded-pill col-4 m-2" type="button" id="registerBtn">註冊</button>
+                <button class="btn rounded-pill col-4 m-2" type="button" id="logInBtn">登入</button>
+            </div>
+        </div>
+    </div>
+    <div class="toast-container top-50 start-50 translate-middle">
+        <div class="toast bg-light" id="errorToast">
+            <div class="toast-header justify-content-end">
+                <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <p>帳號或密碼錯誤，請確認後重新輸入</p>
             </div>
         </div>
     </div>
@@ -68,6 +78,20 @@
                 </div>
             </div>
             `
+        })
+
+        let email = document.getElementById('email')
+        let password = document.getElementById('password')
+        let registerBtn = document.getElementById('registerBtn')
+        let logInBtn = document.getElementById('logInBtn')
+        let errorToast = document.getElementById('errorToast')
+        const eToast = new bootstrap.Toast(errorToast)
+        logInBtn.addEventListener('click',function(){
+            if(email.value == 'abc@xxx.com' && password.value == '1234'){
+                window.open('./partnerspage.html')
+            }else{
+                eToast.show()
+            }
         })
     </script>
 </body>    

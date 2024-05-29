@@ -3,6 +3,12 @@
     object-fit: contain;
 }
 
+@media screen and (min-width:1500px) {
+    #photo img{
+        width: 40%;
+    }    
+}
+
 #interactive-partner-photo img{
     width: 40px;
     height: 40px;
@@ -17,25 +23,26 @@
     overflow-x: auto ;
 }
 
-.grid-container{
-    display: grid;
-}
-
 @media screen and (min-width:992px) {
+    .grid-container{
+        display: grid;
+        grid-template-columns: 12.5% 25% 25% 25% 12.5%;
+    }
+
     .grid-item1{
-        grid-column: 1;
+        grid-column: 2 / span 1 ;
         grid-row:1;
         
     }
     
     .grid-item2{
-        grid-column: 2;
+        grid-column: 3 / span 2 ;
         grid-row:1 / span 2;
         
     }
     
     .grid-item3{
-        grid-column: 1;
+        grid-column: 2 / span 1 ;
         grid-row:2;
         
     }

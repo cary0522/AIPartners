@@ -4,14 +4,18 @@
 
 :root{
     --main:	rgb(255, 236, 239);
-    --main-text:rgb(255, 199, 199);
+    --main-text:rgb(236, 147, 147);
     --btn:rgb(254, 185, 185);
-    --btnClick:rgb(226, 121, 121);
+    --btnClick:rgb(214, 107, 107);
 }
 
 *{
     margin: 0;
     padding: 0;
+}
+
+body{
+    background-image: linear-gradient(white , var(--main));
 }
 
 #logo-img{
@@ -28,8 +32,6 @@ div{
 }
 
 .homepage , .makepage , .partnerspage , .loginpage , .premiumpage , nav , .footer-page{
-    /* background-color: var(--main); */
-    /* background-color: white; */
     font-family: "Darumadrop One","Zen Maru Gothic", serif, sans-serif;
     font-weight: 900;
     font-style: normal;
@@ -66,7 +68,7 @@ i:hover{
 }
 
 .navbar-nav a{
-    color: var(--btn);
+    color: var(--main-text);
     font-size: 25px;
 }
 

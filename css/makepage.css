@@ -1,5 +1,96 @@
+/* #makeBody{
+    background-image: linear-gradient(white , var(--main));
+} */
+
+.conversationOutside {
+    bottom: 0px;
+    left: 0px;
+    visibility: hidden;
+}
+
+.conversationOutside img {
+    max-width: 100%;
+    object-fit: contain;
+    bottom: 5px;
+    left: 5px;
+}
+
+#conversation {
+    border-radius: 50%;
+    background-color: var(--btn);
+    width: 250px;
+    height: 100px;
+    bottom: 200px;
+    left: 50px;
+    transform: rotate(-10deg);
+}
+
+#conversation::before {
+    content: '';
+    border-top: 20px solid var(--btn);
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    transform: rotate(10deg);
+    top: 93px;
+    left: 55px;
+}
+
+.conversationText {
+    top: 25%;
+    left: 15%;
+}
+
+.conversationNaming{
+    top: 35%;
+    left: 15%;
+}
+
+@keyframes jump {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, -50px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+#jumpShadow {
+    background-color: rgba(128, 128, 128, 0.758);
+    width: 60px;
+    height: 10px;
+    border-radius: 50%;
+    bottom: 10px;
+    left: 35%;
+}
+
+.jumpShadowAnimation {
+    animation: jumpShadow .5s ease-in-out;
+}
+
+@keyframes jumpShadow {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(.8);
+        opacity: .6;
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
 .option-content {
-    border: 5px var(--main-text) dashed;
+    /* border: 5px var(--main-text) dashed; */
     height: 85vh;
 }
 
@@ -13,7 +104,7 @@
 }
 
 .radioLabel {
-    font-size: 40px;
+    font-size: 35px;
     background-color: var(--btn);
     border-radius: 5px;
     padding-left: 20px;
@@ -23,7 +114,7 @@
 }
 
 .orContent {
-    font-size: 40px;
+    font-size: 30px;
     align-content: center;
 }
 
@@ -41,7 +132,7 @@
     animation: flipCard .8s ease-in-out;
 }
 
-@keyframes checkedTrait {
+@keyframes checkedAppearance {
     0% {
         transform: translate(15px, -200px);
     }
@@ -51,7 +142,7 @@
     }
 }
 
-@keyframes checkedAppearance {
+@keyframes checkedTrait {
     0% {
         transform: translate(-15px, -200px);
     }
@@ -63,7 +154,7 @@
 
 .checkedOption {
     background-color: var(--btn);
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 25%;
     line-height: 100%;
     height: fit-content;
@@ -75,6 +166,35 @@
 
 .checkedAppearance {
     animation: checkedAppearance .5s ease-in;
+}
+
+#blindImg {
+    right: 50px;
+    bottom: 50px;
+    transform: rotate(10deg);
+    visibility: hidden;
+}
+
+#blindImg img {
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: blur(15px);
+}
+
+#blindImg div {
+    z-index: 1;
+    top: 30%;
+    left: 35%;
+}
+
+@media screen and (min-width:992px) {
+
+    .conversationOutside,
+    #blindImg {
+        visibility: visible;
+    }
+
 }
 
 
@@ -95,18 +215,54 @@
     color: white;
 }
 
-@media screen and (min-width:992px) {
+@media screen and (min-width:568px) {
+    .checkedOption {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:768px) {
     .radioLabel {
         font-size: 55px;
-        width: 80%;
-        height: 300px;
-        writing-mode: vertical-lr;
+        /* width: 80%; */
+        /* height: 300px; */
+        /* writing-mode: vertical-lr; */
         align-content: center;
     }
 
     .orContent {
-        font-size: 70px;
-        writing-mode: vertical-lr;
+        font-size: 40px;
+        /* writing-mode: vertical-lr; */
     }
 
+    .checkedOption {
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (min-width:1200px) {
+    #conversation {
+        bottom: 250px;
+    }
+
+    #jumpShadow {
+        left: 38%;
+    }
+}
+
+@media screen and (min-width:1500px) {
+    #conversation {
+        bottom: 300px;
+    }
+}
+
+@media screen and (min-width:1800px) {
+    #conversation {
+        bottom: 350px;
+    }
+
+    #jumpShadow {
+        left: 40%;
+    }
 }

@@ -197,16 +197,25 @@
     transform: rotate(-5deg);
 }
 
-.options {
+/* .options {
     border: 1px black dashed;
     width: 150px;
     height: 300px;
+} */
+
+.homeImg{
+    transform: scaleX(-1);
+    object-fit: contain;
 }
 
 .clip-card,
 .btnStart {
-    background-color: var(--main-text);
+    background-color: var(--btn);
     font-size: 20px;
+}
+
+.clip-card:hover , .btnStart:hover{
+    background-color: var(--btnClick);
 }
 
 @keyframes card-hover {
@@ -226,7 +235,7 @@
 
 .options-behaviors:hover {
     animation: card-hover .5s linear;
-    background-color: var(--main-text);
+    background-color: var(--btn);
     color: rgb(255, 255, 255);
 }
 

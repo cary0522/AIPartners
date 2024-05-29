@@ -20,15 +20,23 @@ input:invalid{
     color: red;
 }
 
-#submitText small{
+.submitText small{
     font-size: 12px;
 }
 
-#submitText .fa-cart-plus{
+.submitText i{
     color: gray;
 }
 
-#submitText:hover .fa-cart-plus{
+.submitText:hover i{
+    color: white;
+}
+
+.toastLink a{
+    color: gray;
+}
+
+.toastLink:hover a{
     color: white;
 }
 

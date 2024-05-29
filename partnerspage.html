@@ -26,7 +26,7 @@
         </div>
 </div>
     <div class="partnerspage container-fluid">
-        <div class="grid-container">
+        <div class="grid-container grid">
             <div class="grid-item grid-item1">
                 <h2 class="py-3">夥伴基本資料</h2>
                 <div class="d-flex justify-content-center">
@@ -37,16 +37,13 @@
 
             </div>
 
-            <div class="flex-lg-column grid-item grid-item2">
+            <div class="flex-lg-column grid-item grid-item2 text-start">
                 <div class="col-lg-12 p-3" id="info"></div>
                 <div class="col-12">
-
-                    <h2 class="py-3">
+                    <h2 class="pb-3">
                         來跟你的夥伴互動吧！
                     </h2>
-
-
-                    <div class="container col-12 col-lg-8 mx-auto my-2">
+                    <div class="container col-12 col-md-8 col-lg-10 mx-auto my-2">
                         <div class="iphone bg-white w-100 position-relative">
                             <div class="d-flex justify-content-between px-3 py-1">
                                 <div>
@@ -253,7 +250,7 @@
 
         let info = document.getElementById('info');
         info.innerHTML = ` 
-        <p class='fs-4'> ${partner_name}，是一位${partnerTraitArr[0]}、${partnerTraitArr[1]}、${partnerTraitArr[2]}，而且喜愛${partnerTraitArr[3]}的夥伴！ </p>
+        <p class='fs-4 m-0'> ${partner_name}，是一位${partnerTraitArr[0]}、${partnerTraitArr[1]}、${partnerTraitArr[2]}，<br>而且喜愛${partnerTraitArr[3]}的夥伴！ </p>
         `
 
         if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '大耳朵', '身強體壯'].toString()) {

@@ -12,25 +12,32 @@
 
 </head>
 
-<body>
+<body id="makeBody">
     <div class="header-page"></div>
-    <div class="makepage container-fluid d-flex justify-content-center p-3">
+    <div class="makepage container-fluid d-flex justify-content-center p-3 position-relative">
         <div class="option-content col-9 col-lg-8 p-3">
-            <h1 id="makePart">選擇寵物特質</h1>
-            <div class="col-12 my-2 mx-auto py-5 px-2 align-self-center d-lg-flex" id="make-content"></div>
-            <div class="col-12 my-2 mx-auto py-3 px-2 justify-content-between d-flex">
+            <div class="position-absolute conversationOutside col-2">
+                <img src="./0000.nobackground.png" alt="" id="conversationImg">
+                <div id="jumpShadow" class="position-absolute"></div>
+                <div class="position-absolute col-12" id="conversation"></div>
+            </div>
+            <h3 id="makePart">選擇寵物外表</h3>
+            <div class="col-12 my-2 mx-auto py-5 px-2 align-self-center " id="make-content"></div>
+            <div class="col-12 my-2 mx-auto py-3 px-2 justify-content-end d-flex">
                 <div class="col-6 row justify-content-center">
+                    <div class="appearanceCard rounded "></div>
+                    <div class="appearanceCard rounded "></div>
+                    <div class="appearanceCard rounded "></div>
+                    <div class="appearanceCard rounded "></div>
+                </div>
+                <div class="col-6 row justify-content-start">
                     <div class="traitCard rounded "></div>
                     <div class="traitCard rounded "></div>
                     <div class="traitCard rounded "></div>
                     <div class="traitCard rounded "></div>
                 </div>
-                <div class="col-6 row justify-content-center">
-                    <div class="appearanceCard rounded "></div>
-                    <div class="appearanceCard rounded "></div>
-                    <div class="appearanceCard rounded "></div>
-                    <div class="appearanceCard rounded "></div>
-                </div>
+            </div>
+            <div class="col-2 position-absolute" id="blindImg">
             </div>
         </div>
     </div>
@@ -44,7 +51,6 @@
     <script>
         $('.header-page').load('header.html');
         $('.footer-page').load('footer.html');
-
         let traitListStr = localStorage.getItem('trait');
         let traitList = JSON.parse(traitListStr);
         let appearanceListStr = localStorage.getItem('appearance');
@@ -53,16 +59,70 @@
         let traitArr = [];
         let appearanceArr = [];
 
+        let conversationImg = document.getElementById('conversationImg')
+        let jumpShadow = document.getElementById('jumpShadow')
+        let conversation = document.getElementById('conversation')
+        let cTimes = 0
 
-        function traitCardContent() {
-            for (let i = 0; i < traitArr.length; i++) {
-                let traitCard = document.querySelectorAll('.traitCard')
-                traitCard[i].innerText = traitArr[i]
-                traitCard[i].classList += 'px-1 py-2 m-1 fs-4 col-12 col-lg-6 checkedOption'
-                traitCard[i].classList.add('checkedTrait')
-                for (let j = 0; j < i; j++) {
-                        traitCard[j].classList.remove('checkedTrait')
-                }
+        let conversationContentType = ['你喜歡什麼樣的寵物呢？', '你喜歡什麼特質的寵物呢？']
+        let conversationContentQuestion = [
+            `${appearanceList[0]}或${appearanceList[1]}？`,
+            `${appearanceList[2]}或${appearanceList[3]}？`,
+            `${appearanceList[4]}或${appearanceList[5]}？`,
+            `${appearanceList[6]}或${appearanceList[7]}？`,
+            `${traitList[0]}或${traitList[1]}？`,
+            `${traitList[2]}或${traitList[3]}？`,
+            `${traitList[4]}或${traitList[5]}？`,
+            `${traitList[6]}或${traitList[7]}？`
+        ]
+        let count = ['1/8','2/8','3/8','4/8','5/8','6/8','7/8','8/8',]
+
+        conversation.innerHTML = `
+        <div class='position-absolute conversationText'>
+        <small>${conversationContentType[0]}</small>
+        <br>
+        <small>${conversationContentQuestion[0]}</small>
+        <br>
+        <small>${count[0]}</small>
+        </div>
+        `
+
+        function changeQuestion() {
+            cTimes += 1
+            conversationImg.style = 'animation: jump .5s ease-in-out;'
+            conversation.style = 'animation: jump .5s ease-in-out;'
+            jumpShadow.classList.add('jumpShadowAnimation')
+            setTimeout(() => {
+                conversationImg.style = ' '
+                conversation.style = ' '
+                jumpShadow.classList.remove('jumpShadowAnimation')
+            }, 500)
+            if (cTimes == 8) {
+                conversation.innerHTML = `
+                    <div class='position-absolute conversationNaming'>
+                        <small>幫您專屬的寵物取個名字吧！</small>
+                    </div>
+                    `
+            } else if (cTimes > 0 && cTimes <= 4) {
+                conversation.innerHTML = `
+                    <div class='position-absolute conversationText'>
+                        <small>${conversationContentType[0]}</small>
+                        <br>
+                        <small>${conversationContentQuestion[cTimes]}</small>
+                        <br>
+                        <small>${count[cTimes]}</small>
+                    </div>
+                    `
+            } else {
+                conversation.innerHTML = `
+                    <div class='position-absolute conversationText'>
+                        <small>${conversationContentType[1]}</small>
+                        <br>
+                        <small>${conversationContentQuestion[cTimes]}</small>
+                        <br>
+                        <small>${count[cTimes]}</small>
+                    </div>
+                    `
             }
         }
 
@@ -70,10 +130,22 @@
             for (let i = 0; i < appearanceArr.length; i++) {
                 let appearanceCard = document.querySelectorAll('.appearanceCard')
                 appearanceCard[i].innerText = appearanceArr[i]
-                appearanceCard[i].classList += 'px-1 py-2 m-1 fs-4 col-12 col-lg-6 checkedOption '
+                appearanceCard[i].classList += 'px-1 py-2 m-1 col-10 col-md-6 checkedOption '
                 appearanceCard[i].classList.add('checkedAppearance')
                 for (let j = 0; j < i; j++) {
-                        appearanceCard[j].classList.remove('checkedAppearance')
+                    appearanceCard[j].classList.remove('checkedAppearance')
+                }
+            }
+        }
+
+        function traitCardContent() {
+            for (let i = 0; i < traitArr.length; i++) {
+                let traitCard = document.querySelectorAll('.traitCard')
+                traitCard[i].innerText = traitArr[i]
+                traitCard[i].classList += 'px-1 py-2 m-1 col-10 col-md-6 checkedOption'
+                traitCard[i].classList.add('checkedTrait')
+                for (let j = 0; j < i; j++) {
+                    traitCard[j].classList.remove('checkedTrait')
                 }
             }
         }
@@ -83,15 +155,78 @@
 
         makeContent.innerHTML = `
                 <div class='col'>
-                    <input type="radio" id="trait-left" name='option' class="col-6 radioOption" value='${traitList[0]}'>
-                    <label for='trait-left' id='trait-left' class='radioLabel'>${traitList[0]}</label>
+                    <input type="radio" id="appearance-left" name='option' class="col-6 radioOption" value='${appearanceList[0]}'>
+                    <label for='appearance-left' id='appearance-left' class='radioLabel'>${appearanceList[0]}</label>
                 </div>
                 <p class='col orContent'>或是</p>
                 <div class='col'>
-                    <input type="radio" id="trait-right" name='option' class="col-6 radioOption" value='${traitList[1]}'>
-                    <label for='trait-right' id='trait-right' class='radioLabel'>${traitList[1]}</label>
+                    <input type="radio" id="appearance-right" name='option' class="col-6 radioOption" value='${appearanceList[1]}'>
+                    <label for='appearance-right' id='appearance-right' class='radioLabel'>${appearanceList[1]}</label>
                 </div>
         `
+
+        function appearanceFlip(e) {
+            let k = appearanceList.indexOf(e.value)
+            if (k == appearanceList.length - 1 || k == appearanceList.length - 2) {
+                appearanceArr.push(appearanceList[k])
+                let appearanceArrStr = JSON.stringify(appearanceArr);
+                localStorage.setItem('partnerAppearance', appearanceArrStr);
+                addFlipCard()
+                setTimeout(() => {
+                    removeFlipCard()
+                }, 500)
+                traitPart()
+                appearanceCardContent()
+            } else {
+                appearanceArr.push(appearanceList[k])
+                e.value = `${appearanceList[k+2]}`
+                let labelWay = e.nextElementSibling
+                labelWay.innerText = `${appearanceList[k+2]}`
+                e.checked = false
+                addFlipCard()
+                setTimeout(() => {
+                    removeFlipCard()
+                }, 500)
+                appearanceCardContent()
+            }
+        }
+
+        let appearanceLeft = document.getElementById('appearance-left')
+        let appearanceRight = document.getElementById('appearance-right')
+        let blindImgSrc = ['./partners_photo/1011.jpg', './partners_photo/1001.jpg', './partners_photo/0011.jpg',
+            './partners_photo/1010.jpg'
+        ]
+        let blindImg = document.getElementById('blindImg')
+
+        appearanceLeft.addEventListener('change', function () {
+            let srcNum = Math.floor(Math.random() * blindImgSrc.length)
+            blindImg.innerHTML = `
+            <div class="position-absolute">
+                <i class="fa-solid fa-question fa-5x text-white"></i>
+            </div>
+            <img src="${blindImgSrc[srcNum]}" alt="" class="w-100">
+            `
+            appearanceFlip(this)
+            let h = appearanceList.indexOf(this.value)
+            appearanceRight.value = `${appearanceList[h+1]}`
+            appearanceRight.nextElementSibling.innerText = `${appearanceList[h+1]}`
+            changeQuestion()
+        })
+
+        appearanceRight.addEventListener('change', function () {
+            let srcNum = Math.floor(Math.random() * blindImgSrc.length)
+            blindImg.innerHTML = `
+            <div class="position-absolute">
+                <i class="fa-solid fa-question fa-5x text-white"></i>
+            </div>
+            <img src="${blindImgSrc[srcNum]}" alt="" class="w-100">
+            `
+            appearanceFlip(this)
+            let h = appearanceList.indexOf(this.value)
+            appearanceLeft.value = `${appearanceList[h-1]}`
+            appearanceLeft.nextElementSibling.innerText = `${appearanceList[h-1]}`
+            changeQuestion()
+        })
 
         function addFlipCard() {
             let radioLabel = document.querySelectorAll('.radioLabel')
@@ -105,113 +240,74 @@
             radioLabel[1].classList.remove('radioLabelFlip')
         }
 
-        function traitClip(e) {
-            let n = traitList.indexOf(e.value)
-            if (n == traitList.length - 1 || n == traitList.length - 2) {
-                traitArr.push(traitList[n])
-                let traitArrStr = JSON.stringify(traitArr);
-                localStorage.setItem('partnerTrait', traitArrStr);
-                appearancePart()
-                addFlipCard()
-                setTimeout(() => {
-                    removeFlipCard()
-                }, 500)
-                traitCardContent()
 
-            } else {
-                traitArr.push(traitList[n])
-                e.value = `${traitList[n+2]}`
-                let labelWay = e.nextElementSibling
-                labelWay.innerText = `${traitList[n+2]}`
-                e.checked = false
-                addFlipCard()
-                setTimeout(() => {
-                    removeFlipCard()
-                }, 500)
-                traitCardContent()
-            }
-        }
 
-        let traitLeft = document.getElementById('trait-left')
-        let traitRight = document.getElementById('trait-right')
-
-        traitLeft.addEventListener('change', function () {
-            traitClip(this)
-            let m = traitList.indexOf(this.value)
-            traitRight.value = `${traitList[m+1]}`
-            traitRight.nextElementSibling.innerText = `${traitList[m+1]}`
-        })
-
-        traitRight.addEventListener('change', function () {
-            traitClip(this)
-            let m = traitList.indexOf(this.value)
-            traitLeft.value = `${traitList[m-1]}`
-            traitLeft.nextElementSibling.innerText = `${traitList[m-1]}`
-
-        })
-
-        function appearancePart() {
-            makePart.innerText = `請選擇寵物外表`
+        function traitPart() {
+            makePart.innerText = `請選擇寵物特質`
             makeContent.innerHTML = `
-                <div class='col'>
-                    <input type="radio" id="appearance-left" name='option' class="col-6 radioOption" value='${appearanceList[0]}'>
-                    <label for='appearance-left' id='appearance-left' class='radioLabel'>${appearanceList[0]}</label>
+            <div class='col'>
+                    <input type="radio" id="trait-left" name='option' class="col-6 radioOption" value='${traitList[0]}'>
+                    <label for='trait-left' id='trait-left' class='radioLabel'>${traitList[0]}</label>
                 </div>
                 <p class='col orContent'>或是</p>
                 <div class='col'>
-                    <input type="radio" id="appearance-right" name='option' class="col-6 radioOption" value='${appearanceList[1]}'>
-                    <label for='appearance-right' id='appearance-right' class='radioLabel'>${appearanceList[1]}</label>
+                    <input type="radio" id="trait-right" name='option' class="col-6 radioOption" value='${traitList[1]}'>
+                    <label for='trait-right' id='trait-right' class='radioLabel'>${traitList[1]}</label>
                 </div>
                 `
 
-            function appearanceClip(e) {
-                let k = appearanceList.indexOf(e.value)
-                if (k == appearanceList.length - 1 || k == appearanceList.length - 2) {
-                    appearanceArr.push(appearanceList[k])
-                    let appearanceArrStr = JSON.stringify(appearanceArr);
-                    localStorage.setItem('partnerAppearance', appearanceArrStr);
+            let traitLeft = document.getElementById('trait-left')
+            let traitRight = document.getElementById('trait-right')
+
+            function traitFlip(e) {
+                let n = traitList.indexOf(e.value)
+                if (n == traitList.length - 1 || n == traitList.length - 2) {
+                    traitArr.push(traitList[n])
+                    let traitArrStr = JSON.stringify(traitArr);
+                    localStorage.setItem('partnerTrait', traitArrStr);
                     naming()
-                    appearanceCardContent()
+                    traitCardContent()
                 } else {
-                    appearanceArr.push(appearanceList[k])
-                    e.value = `${appearanceList[k+2]}`
+                    traitArr.push(traitList[n])
+                    e.value = `${traitList[n+2]}`
                     let labelWay = e.nextElementSibling
-                    labelWay.innerText = `${appearanceList[k+2]}`
+                    labelWay.innerText = `${traitList[n+2]}`
                     e.checked = false
                     addFlipCard()
                     setTimeout(() => {
                         removeFlipCard()
                     }, 500)
-                    appearanceCardContent()
+                    traitCardContent()
                 }
             }
 
-            let appearanceLeft = document.getElementById('appearance-left')
-            let appearanceRight = document.getElementById('appearance-right')
-
-            appearanceLeft.addEventListener('change', function () {
-                appearanceClip(this)
-                let h = appearanceList.indexOf(this.value)
-                appearanceRight.value = `${appearanceList[h+1]}`
-                appearanceRight.nextElementSibling.innerText = `${appearanceList[h+1]}`
+            traitLeft.addEventListener('change', function () {
+                traitFlip(this)
+                let m = traitList.indexOf(this.value)
+                traitRight.value = `${traitList[m+1]}`
+                traitRight.nextElementSibling.innerText = `${traitList[m+1]}`
+                changeQuestion()
             })
 
-            appearanceRight.addEventListener('change', function () {
-                appearanceClip(this)
-                let h = appearanceList.indexOf(this.value)
-                appearanceLeft.value = `${appearanceList[h-1]}`
-                appearanceLeft.nextElementSibling.innerText = `${appearanceList[h-1]}`
+            traitRight.addEventListener('change', function () {
+                traitFlip(this)
+                let m = traitList.indexOf(this.value)
+                traitLeft.value = `${traitList[m-1]}`
+                traitLeft.nextElementSibling.innerText = `${traitList[m-1]}`
+                changeQuestion()
+
             })
+
         }
 
         function naming() {
             makePart.innerText = `請為寵物命名`
             makeContent.innerHTML = `
-                <div class="input-group my-5 mx-auto flex-nowrap">
+                <div class="input-group my-5 mx-auto flex-nowrap ms-1">
                     <span class="input-group-text inputGroup-sizing-lg">輸入名稱</span>
                     <input type="text" class="form-control" id='name-text' required>
                 </div>
-                <div class='col-10 col-lg-5 my-5 mx-auto'>
+                <div class='col-10 col-md-5 my-5 mx-auto'>
                     <button type="submit" class="btn" id='make-done'>
                         <a href="./partnerspage.html" class='text-decoration-none'>製作完成</a>
                     </button>
