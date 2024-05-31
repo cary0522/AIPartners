@@ -14,27 +14,15 @@
 <body>
     <div class="header-page"></div>
 
-    <div class="container-fluid" id="cartpage">
-        <div id="cartPart"></div>
-        <div id="monthPart"></div>
-        <div id="totalPart"></div>
-        <!-- <div class="col-12 row mx-auto border-bottom py-2">
-            <img src="./partners_photo/1111.jpg" alt="" class="cart-img p-1 w-50">
-            <div class="col-6 align-self-center cart-text">
-                <span class="row text-start">毛絨可愛、大眼睛、小耳朵的可愛寵物</span>
-                <div class="row my-3">
-                    <span class="col-1 align-self-center">40</span>
-                    <span class="col-1 align-self-center"><i class="fa-solid fa-dollar-sign text-dark"></i></span>
-                    <button class="btn btnMinus col-2">
-                        <i class="fa-solid fa-minus"></i>
-                    </button>
-                    <input type="tel" pattern="[0-9]{1}" value="1" class="col-4 text-center cartText">
-                    <button class="btn btnPlus col-2">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-        </div> -->
+    <div class="container-fluid cartpage" id="cartpage">
+        <div class="container-fluid my-3">
+            <h1 class="highlight">請確認購物明細</h1>
+        </div>
+        <div class="d-lg-flex">
+            <div class="col-12 col-lg-8" id="cartPart"></div>
+            <div class="col-12 col-lg-8" id="monthPart"></div>
+            <div class="col-12 col-lg-4" id="totalPart"></div>
+        </div>
     </div>
 
 
@@ -54,84 +42,150 @@
         let monthPlan = JSON.parse(localStorage.getItem('monthPlan'))
 
         let cartPart = document.getElementById('cartPart')
-        for (i = 0; i < shoppingList.length; i++) {
-            if (shoppingList[i]) {
-                    cartPart.innerHTML = `
-                    <div class="col-12 row mx-auto border-bottom py-2 justify-content-center">
-                        <img src="${shoppingList[i][0][1]}" alt="" class="cart-img p-1 w-50">
-                        <div class="col-12 col-md-6 align-self-center cart-text text-center">
-                            <span class="row">${shoppingList[i][1][1]}</span>
-                            <div class="row my-3">
-                                <span class="col-1 align-self-center" id='total${i}'>${shoppingList[i][2][1]*shoppingList[i][3][1]}</span>
-                                <span class="col-1 align-self-center mx-1"><i class="fa-solid fa-dollar-sign text-dark"></i></span>
-                                <button class="btn btnMinus col-2">
-                                    <i class="fa-solid fa-minus"></i>
-                                </button>
-                                <input type="tel" pattern="[0-9]{1}" value="${shoppingList[i][3][1]}" class="col-4 text-center cartText">
-                                <button class="btn btnPlus col-2">
-                                    <i class="fa-solid fa-plus"></i>
-                                </button>
+        let monthPart = document.getElementById('monthPart')
+        let totalPart = document.getElementById('totalPart')
+        let finalPrice = null
+        if (shoppingList) {
+            monthPart.style = 'display:none;'
+            for (i = 0; i < shoppingList.length; i++) {
+                if (shoppingList[i]) {
+                    cartPart.innerHTML += `
+                        <div class="col-12 row mx-auto border-bottom py-2 justify-content-center">
+                            <img src="${shoppingList[i][0][1]}" alt="" class="cart-img p-1 col-6 col-md-4 col-lg-3 mx-auto">
+                            <div class="col-12 col-md-6 col-lg-8 align-self-center cart-text text-center mx-auto d-flex flex-column justify-content-center">
+                                <p class="row col-12 mx-auto justify-content-evenly">${shoppingList[i][1][1]}</p>
+                                <div class="row col-12 my-3 mx-auto justify-content-evenly">
+                                    <span class="col-2 align-self-center" id='itemTotal${i}'>${shoppingList[i][2][1]*shoppingList[i][3][1]}</span>
+                                    <span class="col-2 align-self-center mx-1"><i class="fa-solid fa-dollar-sign"></i></span>
+                                    <button class="btn btnMinus col-1">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                    <input type="tel" pattern="[0-9]{1}" value="${shoppingList[i][3][1]}" class="col-4 text-center cartText" id='itemIndex${i}'>
+                                    <button class="btn btnPlus col-1">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    `
+                        `
+                    let allItemTotal = parseInt(shoppingList[i][2][1]) * parseInt(shoppingList[i][3][1])
+                    finalPrice += allItemTotal
+                    totalPart.innerHTML = `
+                            <div class='my-3 mx-auto '>
+                                <span>總金額：</span>
+                                <span class="col-1 align-self-center" id='totalPrice'>${finalPrice}</span>
+                                <span class="col-1 align-self-center mx-1"><i class="fa-solid fa-dollar-sign"></i></span>
+                            </div>
+                            <button type="button" class="btn my-3 mx-auto col-5 fs-3" id='btnCheckOut'>確認結帳</button>
+                            `
+                }
+            }
+
+            let btnMinus = document.querySelectorAll('.btnMinus')
+            let btnPlus = document.querySelectorAll('.btnPlus')
+
+            function cartPlus(e) {
+                for (i = 0; i < shoppingList.length; i++) {
+                    if (e.previousElementSibling.id == `itemIndex${i}`) {
+                        let itemIndex = document.getElementById(`itemIndex${i}`)
+                        let num = parseInt(shoppingList[i][3][1])
+                        if (num < 9) {
+                            num += 1
+                            shoppingList[i][3][1] = num
+                            itemIndex.value = num
+                        }
+                        let itemTotal = document.getElementById(`itemTotal${i}`)
+                        itemTotal.innerText = parseInt(`${shoppingList[i][2][1]*shoppingList[i][3][1]}`)
+                    }
+                }
+            }
+
+            function cartMinus(e) {
+                for (i = 0; i < shoppingList.length; i++) {
+                    if (e.nextElementSibling.id == `itemIndex${i}`) {
+                        let itemIndex = document.getElementById(`itemIndex${i}`)
+                        let num = parseInt(shoppingList[i][3][1])
+                        if (num > 0) {
+                            num -= 1
+                            shoppingList[i][3][1] = num
+                            itemIndex.value = num
+                        }
+                        let itemTotal = document.getElementById(`itemTotal${i}`)
+                        itemTotal.innerText = parseInt(`${shoppingList[i][2][1]*shoppingList[i][3][1]}`)
+                    }
+                }
+            }
+
+            function checkoutPrice() {
+                let finalPrice = 0
+                for (i = 0; i < shoppingList.length; i++) {
+                    if (shoppingList[i]) {
+                        let allItemTotal = parseInt(shoppingList[i][2][1]) * parseInt(shoppingList[i][3][1])
+                        finalPrice += allItemTotal
+                        totalPrice.innerText = finalPrice
+                    }
+                }
+            }
+
+            for (i = 0; i < shoppingList.length; i++) {
+                if (btnPlus[i]) {
+                    btnPlus[i].addEventListener('click', function () {
+                        cartPlus(this)
+                        checkoutPrice()
+                    })
+                }
+            }
+
+            for (i = 0; i < shoppingList.length; i++) {
+                if (btnMinus[i]) {
+                    btnMinus[i].addEventListener('click', function () {
+                        cartMinus(this)
+                        checkoutPrice()
+                    })
+                }
             }
         }
-        
-        let monthPart = document.getElementById('monthPart')
-        if(monthPlan){
+
+
+        if (monthPlan) {
+            cartPart.style = 'display:none;'
             monthPart.innerHTML = `
-            <div class="col-12 col-md-6 align-self-center cart-text text-center">
-                            <span class="row">${monthPlan[0][1]}</span>
-                            <div class="row my-3">
-                                <span class="col-1 align-self-center" id='monthTotal'>${monthPlan[1][1]}</span>
-                                <span class="col-1 align-self-center mx-1"><i class="fa-solid fa-dollar-sign text-dark"></i></span>
-                            </div>
+            <div class="col-12 align-self-center cart-text text-center container-fluid">
+                <div class='d-flex flex-nowrap mx-auto justify-content-center'>
+                    <div class="col-2 m-1 month-card-pet">
+                        <img src="./partners_photo/1100.jpg" alt="" class="pet-card-img p-1">
+                    </div>
+                    <div class="col-2 m-1 month-card-pet">
+                        <img src="./partners_photo/0010.jpg" alt="" class="pet-card-img p-1">
+                    </div>
+                    <div class="col-2 m-1 month-card-pet">
+                        <img src="./partners_photo/0110.jpg" alt="" class="pet-card-img p-1">
+                    </div>
+                    <div class="col-2 m-1 month-card-pet">
+                        <img src="./partners_photo/1001.jpg" alt="" class="pet-card-img p-1">
+                    </div>
+                    <div class="col-2 m-1 month-card-pet">
+                        <img src="./partners_photo/0111.jpg" alt="" class="pet-card-img p-1">
+                    </div>
+                    </div>
+                <div class='d-flex flex-column mx-auto justify-content-center mt-2 '>
+                    <span class="row mx-auto">${monthPlan[0][1]}</span>
+                    <div class="row my-3 mx-auto justify-content-evenly">
+                        <span class="col-1 align-self-center" id='monthTotal'>${monthPlan[1][1]}</span>
+                        <span class="col-1 align-self-center mx-1"><i class="fa-solid fa-dollar-sign"></i></span>
+                    </div>
+                </div>
             </div>
             `
+            totalPart.innerHTML = `
+                        <div class='my-3 mx-auto '>
+                            <span>總金額：</span>
+                            <span class="col-1 align-self-center" id='totalPrice'>199</span>
+                            <span class="col-1 align-self-center mx-1"><i class="fa-solid fa-dollar-sign"></i></span>
+                        </div>
+                        <button type="button" class="btn my-3 mx-auto col-5 fs-3" id='btnCheckOut'>確認結帳</button>
+                        `
         }
-        // console.log(monthPlan.values())
-        // let monthPart = document.getElementById('monthPart')
-        // monthPart.innerHTML = `
-        // <div>
-        //     ${monthPart.get('monthPrice')}   
-        // </div>
-        // `
-
-        // let btnMinus = document.querySelectorAll('.btnMinus')
-        // let btnPlus = document.querySelectorAll('.btnPlus')
-
-        // function cartPlus(e) {
-        //     let num = parseInt(e.previousElementSibling.value)
-        //     if (num < 9) {
-        //         num += 1
-        //         e.previousElementSibling.value = num
-        //     }
-        // }
-
-        // function cartMinus(e) {
-        //     let num = parseInt(e.nextElementSibling.value)
-        //     if (num > 0) {
-        //         num -= 1
-        //         e.nextElementSibling.value = num
-        //     }
-        // }
-
-        // for (i = 0; i < shoppingList.length ; i++) {
-        //     if(btnPlus[i]){
-        //         btnPlus[i].addEventListener('click', function () {
-        //             cartPlus(this)
-        //         })
-        //     }
-        // }
-
-        // for (i = 0; i < shoppingList.length ; i++) {
-        //     if(btnMinus[i]){
-        //         btnMinus[i].addEventListener('click', function () {
-        //             cartMinus(this)
-        //         })
-        //     }
-        // }
     </script>
 </body>
 

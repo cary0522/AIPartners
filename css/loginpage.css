@@ -1,25 +1,25 @@
-.log-in-input:valid+p::after{
-    content: '\2713';
-    color: green;
-}
-
+/* 輸入區域 */
 #log-in{
     width: 100%;
     background-color: rgba(255, 255, 255, 0.596);
     box-shadow: 0 0 5px rgba(163, 161, 161, 0.625);
 }
-
 @media screen and (min-width:768px) {
     #log-in{
         width: 50%;
     }
-    
+}
+.log-in-input:valid+p::after{
+    content: '\2713';
+    color: var(--complementary-btn);
 }
 
+/* 按鈕樣式 */
 .loginpage .rounded-pill{
-    background-color: var(--btn);
+    background-color: var(--dark-color);
 }
-
 .loginpage .rounded-pill:hover{
-    background-color: var(--btnClick);
+    background-color: var(--dark-color);
+    box-shadow: 0 0 3px var(--dark-color);
+    transform: scale(1.1);
 }

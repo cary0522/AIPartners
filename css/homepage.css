@@ -1,18 +1,8 @@
-.navbar-toggle:checked+.collapse {
-    display: block;
-}
-
-.iphone {
-    height: 500px;
-    border-radius: 25px;
-    box-shadow: 0 0 5px rgb(197, 167, 167), -5px -5px 5px rgba(227, 227, 227,.5) inset, 5px 5px 5px rgba(255, 248, 248,.5) inset; 
-}
-
+/* 設定對話框樣式、動畫效果 */
 .textContainer {
     overflow: hidden;
     text-wrap: nowrap;
 }
-
 .partner-text,
 .user-text {
     width: 200px;
@@ -23,15 +13,12 @@
     background-color: var(--main);
     border-radius: 25px;
 }
-
 .partner-text {
     margin-left: 20px;
 }
-
 .user-text {
     margin-right: 20px;
 }
-
 .partner-text::before {
     content: '';
     border-top: 10px solid transparent;
@@ -42,7 +29,6 @@
     top: 10px;
     left: 2px;
 }
-
 .textOne::after {
     content: '';
     border-left: 1px solid gray;
@@ -56,7 +42,6 @@
     right: 0;
     animation: typeWrite 3s steps(10) 1 forwards, blank .5s steps(9) infinite forwards;
 }
-
 .textTwo::after {
     content: '';
     border-left: 1px solid transparent;
@@ -71,7 +56,6 @@
     right: 0;
     animation: typeWrite 3s 3s steps(10) 1 forwards, blank .5s 3s steps(9) infinite forwards;
 }
-
 .user-text::before {
     content: '';
     border-top: 10px solid transparent;
@@ -82,7 +66,6 @@
     right: 2px;
     top: 10px;
 }
-
 .textThree::after {
     content: '';
     border-left: 1px solid transparent;
@@ -97,7 +80,6 @@
     right: 0;
     animation: typeWriteRight 2s 6s steps(4) 1 forwards, blank .5s 6s steps(3) infinite forwards;
 }
-
 @keyframes typeWrite {
     0% {
         left: 30px;
@@ -113,7 +95,6 @@
         width: 0;
     }
 }
-
 @keyframes typeWriteRight {
     0% {
         left: 35%;
@@ -125,7 +106,6 @@
         width: 0;
     }
 }
-
 @keyframes blank {
     from {
         border-left: solid 1px gary
@@ -135,117 +115,135 @@
         border-left: solid 1px transparent
     }
 }
-
-
 .enter-content {
     bottom: 8px;
 }
+.iphone {
+    height: 500px;
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgb(197, 167, 167), -5px -5px 5px rgba(227, 227, 227, .5) inset, 5px 5px 5px rgba(255, 248, 248, .5) inset;
+}
+.iphone i , .iphone p {
+    color: var(--main-head);
+}
 
+/* 設定泡泡飄浮效果 */
 .animal-photo img {
     border-radius: 100px;
-    width: 20%;
     filter: opacity(60%);
-    object-fit: fill; 
-    box-shadow: 0 0 5px gray , 10px 10px 5px gray inset , -10px -10px 5px rgba(128, 128, 128 , .5) inset; 
+    object-fit: fill;
+    box-shadow: 0 0 5px gray, 10px 10px 5px gray inset, -10px -10px 5px rgba(128, 128, 128, .5) inset;
 }
-
-.animal-photo{
+.animal-photo {
     position: absolute;
     bottom: 0;
-    animation: photoAnimation 16s linear forwards infinite ;
+    animation: photoAnimation 16s linear forwards infinite;
     opacity: 0;
 }
-
 @keyframes photoAnimation {
-    0%{
-        opacity: 1;
+    0% {
+        opacity: 0;
         top: 90%;
     }
-    25%,75%{
-        transform: translateX(100px);
+    15%{
+        opacity: 1;
     }
-    50%{
-        transform: translateX(-100px);
+    25%,
+    75% {
+        transform: translateX(80px);
     }
-    100%{
+    50% {
+        transform: translateX(-80px);
+    }
+    100% {
         top: -10%;
         opacity: 0;
     }
 }
-
-.animal-photo:nth-child(2){
+.animal-photo:nth-child(2) {
     animation-delay: 4s;
-    left: 100px;
+    left: 80px;
 }
-
-.animal-photo:nth-child(3){
+.animal-photo:nth-child(3) {
     animation-delay: 8s;
-    right: 100px;
-
+    right: 80px;
 }
-
-.animal-photo:nth-child(4){
+.animal-photo:nth-child(4) {
     animation-delay: 12s;
-
 }
-
-.animal-photo:nth-child(odd) img{
+.animal-photo:nth-child(odd) img {
     transform: rotate(5deg);
 }
-
-.animal-photo:nth-child(even) img{
+.animal-photo:nth-child(even) img {
     transform: rotate(-5deg);
 }
 
-/* .options {
-    border: 1px black dashed;
-    width: 150px;
-    height: 300px;
-} */
-
-.homeImg{
+/* 客製化選項區域 */
+.homepage-part2 {
+    background-image: linear-gradient(transparent 5%, var(--main) 5%);
+}
+.homeImg {
     transform: scaleX(-1);
     object-fit: contain;
 }
-
-.clip-card,
-.btnStart {
-    background-color: var(--btn);
-    font-size: 20px;
+.square-card {
+    border: 1px dashed var(--dark-text);
+    color: var(--dark-text);
+    font-size: 18px;
+}
+.square-card:hover{
+    transform: scale(1.2);
 }
 
-.clip-card:hover , .btnStart:hover{
-    background-color: var(--btnClick);
+/* 互動選項區域 */
+.options-behaviors:nth-child(odd) {
+    background-color: var(--light-color);
+    color: var(--main-head)
 }
-
+.options-behaviors:nth-child(odd):hover {
+    animation: card-hover .5s linear forwards;
+}
+.options-behaviors:nth-child(even) {
+    background-color: var(--dark-color);
+    color: var(--main-head)
+}
+.options-behaviors:nth-child(even):hover .card-text{
+    color: var(--main)
+}
+.options-behaviors:nth-child(even):hover {
+    animation: card-hover .5s linear forwards;
+    color: var(--main)
+}
+.options-behaviors .card-text {
+    color: var(--main-head)
+}
+.options-behaviors:nth-child(even) :hover>i {
+    color: var(--main-head);
+}
 @keyframes card-hover {
     0% {
-        transform: translate(0px, 0px);
+        transform: scale(1);
     }
 
     100% {
-        transform: translate(5px, -5px);
+        transform: scale(1.1)
     }
 }
-
-.options-behaviors {
-    background-color: rgba(255, 238, 238, 0.627);
-    border-radius: 50%;
-}
-
-.options-behaviors:hover {
-    animation: card-hover .5s linear;
-    background-color: var(--btn);
-    color: rgb(255, 255, 255);
-}
-
-.options-behaviors:hover>i {
-    color: white;
-}
-
 @media screen and (min-width:576px) {
-    .card-text {
+    .card-text , .square-card{
         font-size: 20px;
     }
+}
 
+/* 開始製作按鈕 */
+.btnStart {
+    border: 2px solid var(--dark-text);
+    border-radius: 30px;
+    color: var(--dark-text);
+}
+.btnStart:hover {
+    background-color: var(--dark-text);
+    border: 1px solid var(--main);
+    color: var(--main);
+    cursor: pointer;
 }

@@ -14,31 +14,97 @@
 
 <body id="makeBody">
     <div class="header-page"></div>
+    <!-- 轉場畫面 -->
+    <div id="loading" class="row">
+        <div id="loading-content" class="mx-auto row align-self-center">
+            <div class="loading-foot">
+                <i class="fa-solid fa-paw fa-spin fa-5x"></i>
+            </div>
+            <div class="loading-text">請稍候，正在努力製作您的專屬寵物</div>
+        </div>
+    </div>
+
     <div class="makepage container-fluid d-flex justify-content-center p-3 position-relative">
-        <div class="option-content col-9 col-lg-8 p-3">
-            <div class="position-absolute conversationOutside col-2">
+        <div class="option-content col-9 col-md-12 col-lg-8 p-3">
+            <!-- 右下互動寵物 -->
+            <!-- <div class="position-absolute conversationOutside">
+                <div class="position-relative col-12" id="conversation"></div>
                 <img src="./0000.nobackground.png" alt="" id="conversationImg">
                 <div id="jumpShadow" class="position-absolute"></div>
-                <div class="position-absolute col-12" id="conversation"></div>
-            </div>
-            <h3 id="makePart">選擇寵物外表</h3>
-            <div class="col-12 my-2 mx-auto py-5 px-2 align-self-center " id="make-content"></div>
-            <div class="col-12 my-2 mx-auto py-3 px-2 justify-content-end d-flex">
-                <div class="col-6 row justify-content-center">
-                    <div class="appearanceCard rounded "></div>
-                    <div class="appearanceCard rounded "></div>
-                    <div class="appearanceCard rounded "></div>
-                    <div class="appearanceCard rounded "></div>
+            </div> -->
+            <div class="container-fluid col-12" id="make-container">
+                <h1 id="makePart">選擇寵物外表</h1>
+                <div class="col-12 my-2 mx-auto py-4 px-2 align-self-center d-md-flex justify-content-md-between"
+                    id="make-content"></div>
+                <div class="col-12 my-3 my-md-5 mx-auto py-3 px-2 justify-content-center d-flex">
+                    <div class="col-6 me-3">
+                        <div class="d-flex px-1">
+                            <div class="appearanceCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                            <div class="relateLine ms-1" id="relateLine1"></div>
+                        </div>
+                        <div class="d-flex px-1">
+                            <div class="appearanceCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                            <div class="relateLine ms-1" id="relateLine2"></div>
+                        </div>
+                        <div class="d-flex px-1">
+                            <div class="appearanceCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                            <div class="relateLine ms-1" id="relateLine3"></div>
+                        </div>
+                        <div class="d-flex px-1">
+                            <div class="appearanceCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                            <div class="relateLine ms-1" id="relateLine4"></div>
+                        </div>
+                    </div>
+                    <div class="col-2 align-self-center" id="blindImg">
+                        <img src="./0000.nobackground.png" alt="" class="w-100">
+                    </div>
+                    <div class="col-6 ms-3">
+                        <div class="d-flex px-1">
+                            <div class="relateLine me-1" id="relateLine5"></div>
+                            <div class="traitCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                        </div>
+                        <div class="d-flex px-1">
+                            <div class="relateLine me-1" id="relateLine6"></div>
+                            <div class="traitCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                        </div>
+                        <div class="d-flex px-1">
+                            <div class="relateLine me-1" id="relateLine7"></div>
+                            <div class="traitCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                        </div>
+                        <div class="d-flex px-1">
+                            <div class="relateLine me-1" id="relateLine8"></div>
+                            <div class="traitCard rounded px-1 py-2 m-1 col-12 col-md-10 "></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6 row justify-content-start">
-                    <div class="traitCard rounded "></div>
-                    <div class="traitCard rounded "></div>
-                    <div class="traitCard rounded "></div>
-                    <div class="traitCard rounded "></div>
+            </div>
+            <div class="position-absolute d-flex" id="footprintDiv">
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
+                </div>
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
+                </div>
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
+                </div>
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
+                </div>
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
+                </div>
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
+                </div>
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
+                </div>
+                <div class="footprintItem">
+                    <i class="fa-solid fa-paw fa-3x footDivI fa-rotate-90"></i>
                 </div>
             </div>
-            <div class="col-2 position-absolute" id="blindImg">
-            </div>
+
         </div>
     </div>
     <div class="footer-page"></div>
@@ -59,78 +125,83 @@
         let traitArr = [];
         let appearanceArr = [];
 
-        let conversationImg = document.getElementById('conversationImg')
+        // let conversationImg = document.getElementById('conversationImg')
         let jumpShadow = document.getElementById('jumpShadow')
-        let conversation = document.getElementById('conversation')
+        // let conversation = document.getElementById('conversation')
         let cTimes = 0
 
-        let conversationContentType = ['你喜歡什麼樣的寵物呢？', '你喜歡什麼特質的寵物呢？']
-        let conversationContentQuestion = [
-            `${appearanceList[0]}或${appearanceList[1]}？`,
-            `${appearanceList[2]}或${appearanceList[3]}？`,
-            `${appearanceList[4]}或${appearanceList[5]}？`,
-            `${appearanceList[6]}或${appearanceList[7]}？`,
-            `${traitList[0]}或${traitList[1]}？`,
-            `${traitList[2]}或${traitList[3]}？`,
-            `${traitList[4]}或${traitList[5]}？`,
-            `${traitList[6]}或${traitList[7]}？`
-        ]
-        let count = ['1/8','2/8','3/8','4/8','5/8','6/8','7/8','8/8',]
+        // let conversationContentType = ['你喜歡什麼樣的寵物呢？', '你喜歡什麼特質的寵物呢？']
+        // let conversationContentQuestion = [
+        //     `${appearanceList[0]}或${appearanceList[1]}？`,
+        //     `${appearanceList[2]}或${appearanceList[3]}？`,
+        //     `${appearanceList[4]}或${appearanceList[5]}？`,
+        //     `${appearanceList[6]}或${appearanceList[7]}？`,
+        //     `${traitList[0]}或${traitList[1]}？`,
+        //     `${traitList[2]}或${traitList[3]}？`,
+        //     `${traitList[4]}或${traitList[5]}？`,
+        //     `${traitList[6]}或${traitList[7]}？`
+        // ]
+        // let count = ['1/8', '2/8', '3/8', '4/8', '5/8', '6/8', '7/8', '8/8', ]
 
-        conversation.innerHTML = `
-        <div class='position-absolute conversationText'>
-        <small>${conversationContentType[0]}</small>
-        <br>
-        <small>${conversationContentQuestion[0]}</small>
-        <br>
-        <small>${count[0]}</small>
-        </div>
-        `
+        // conversation.innerHTML = `
+        // <div class='position-absolute conversationText'>
+        // <small>${conversationContentType[0]}</small>
+        // <br>
+        // <small>${conversationContentQuestion[0]}</small>
+        // <br>
+        // <small>${count[0]}</small>
+        // </div>
+        // `
+
+        let footDivI = document.querySelectorAll('.footDivI')
 
         function changeQuestion() {
-            cTimes += 1
-            conversationImg.style = 'animation: jump .5s ease-in-out;'
-            conversation.style = 'animation: jump .5s ease-in-out;'
-            jumpShadow.classList.add('jumpShadowAnimation')
-            setTimeout(() => {
-                conversationImg.style = ' '
-                conversation.style = ' '
-                jumpShadow.classList.remove('jumpShadowAnimation')
-            }, 500)
-            if (cTimes == 8) {
-                conversation.innerHTML = `
-                    <div class='position-absolute conversationNaming'>
-                        <small>幫您專屬的寵物取個名字吧！</small>
-                    </div>
-                    `
-            } else if (cTimes > 0 && cTimes <= 4) {
-                conversation.innerHTML = `
-                    <div class='position-absolute conversationText'>
-                        <small>${conversationContentType[0]}</small>
-                        <br>
-                        <small>${conversationContentQuestion[cTimes]}</small>
-                        <br>
-                        <small>${count[cTimes]}</small>
-                    </div>
-                    `
-            } else {
-                conversation.innerHTML = `
-                    <div class='position-absolute conversationText'>
-                        <small>${conversationContentType[1]}</small>
-                        <br>
-                        <small>${conversationContentQuestion[cTimes]}</small>
-                        <br>
-                        <small>${count[cTimes]}</small>
-                    </div>
-                    `
+            if(footDivI[cTimes]){
+                footDivI[cTimes].style = 'color:var(--highlight-text);'
             }
+            cTimes += 1
+            // conversationImg.style = 'animation: jump .5s ease-in-out;'
+            // conversation.style = 'animation: jump .5s ease-in-out;'
+            // jumpShadow.classList.add('jumpShadowAnimation')
+            // setTimeout(() => {
+            //     conversationImg.style = ' '
+            //     conversation.style = ' '
+            //     jumpShadow.classList.remove('jumpShadowAnimation')
+            // }, 500)
+            // if (cTimes == 8) {
+            //     conversation.innerHTML = `
+            //         <div class='position-absolute conversationNaming'>
+            //             <small>幫您專屬的寵物取個名字吧！</small>
+            //         </div>
+            //         `
+            // } else if (cTimes > 0 && cTimes <= 4) {
+            //     conversation.innerHTML = `
+            //         <div class='position-absolute conversationText'>
+            //             <small>${conversationContentType[0]}</small>
+            //             <br>
+            //             <small>${conversationContentQuestion[cTimes]}</small>
+            //             <br>
+            //             <small>${count[cTimes]}</small>
+            //         </div>
+            //         `
+            // } else {
+            //     conversation.innerHTML = `
+            //         <div class='position-absolute conversationText'>
+            //             <small>${conversationContentType[1]}</small>
+            //             <br>
+            //             <small>${conversationContentQuestion[cTimes]}</small>
+            //             <br>
+            //             <small>${count[cTimes]}</small>
+            //         </div>
+            //         `
+            // }
         }
 
         function appearanceCardContent() {
             for (let i = 0; i < appearanceArr.length; i++) {
                 let appearanceCard = document.querySelectorAll('.appearanceCard')
                 appearanceCard[i].innerText = appearanceArr[i]
-                appearanceCard[i].classList += 'px-1 py-2 m-1 col-10 col-md-6 checkedOption '
+                appearanceCard[i].classList += 'checkedOption '
                 appearanceCard[i].classList.add('checkedAppearance')
                 for (let j = 0; j < i; j++) {
                     appearanceCard[j].classList.remove('checkedAppearance')
@@ -142,7 +213,7 @@
             for (let i = 0; i < traitArr.length; i++) {
                 let traitCard = document.querySelectorAll('.traitCard')
                 traitCard[i].innerText = traitArr[i]
-                traitCard[i].classList += 'px-1 py-2 m-1 col-10 col-md-6 checkedOption'
+                traitCard[i].classList += 'checkedOption'
                 traitCard[i].classList.add('checkedTrait')
                 for (let j = 0; j < i; j++) {
                     traitCard[j].classList.remove('checkedTrait')
@@ -154,12 +225,12 @@
         let makeContent = document.getElementById('make-content');
 
         makeContent.innerHTML = `
-                <div class='col'>
+                <div class='col-12 col-md-5'>
                     <input type="radio" id="appearance-left" name='option' class="col-6 radioOption" value='${appearanceList[0]}'>
                     <label for='appearance-left' id='appearance-left' class='radioLabel'>${appearanceList[0]}</label>
                 </div>
-                <p class='col orContent'>或是</p>
-                <div class='col'>
+                <p class='col-12 col-md-2 orContent'>或是</p>
+                <div class='col-12 col-md-5'>
                     <input type="radio" id="appearance-right" name='option' class="col-6 radioOption" value='${appearanceList[1]}'>
                     <label for='appearance-right' id='appearance-right' class='radioLabel'>${appearanceList[1]}</label>
                 </div>
@@ -193,17 +264,12 @@
 
         let appearanceLeft = document.getElementById('appearance-left')
         let appearanceRight = document.getElementById('appearance-right')
-        let blindImgSrc = ['./partners_photo/1011.jpg', './partners_photo/1001.jpg', './partners_photo/0011.jpg',
-            './partners_photo/1010.jpg'
-        ]
+        let blindImgSrc = ['./0000.nobackground.png', './1011.nobackground.png', './0011.nobackground.png']
         let blindImg = document.getElementById('blindImg')
 
         appearanceLeft.addEventListener('change', function () {
             let srcNum = Math.floor(Math.random() * blindImgSrc.length)
             blindImg.innerHTML = `
-            <div class="position-absolute">
-                <i class="fa-solid fa-question fa-5x text-white"></i>
-            </div>
             <img src="${blindImgSrc[srcNum]}" alt="" class="w-100">
             `
             appearanceFlip(this)
@@ -211,14 +277,15 @@
             appearanceRight.value = `${appearanceList[h+1]}`
             appearanceRight.nextElementSibling.innerText = `${appearanceList[h+1]}`
             changeQuestion()
+            blindImg.classList.add('blindImgAnimation')
+            setTimeout(() => {
+                blindImg.classList.remove('blindImgAnimation')
+            }, 300)
         })
 
         appearanceRight.addEventListener('change', function () {
             let srcNum = Math.floor(Math.random() * blindImgSrc.length)
             blindImg.innerHTML = `
-            <div class="position-absolute">
-                <i class="fa-solid fa-question fa-5x text-white"></i>
-            </div>
             <img src="${blindImgSrc[srcNum]}" alt="" class="w-100">
             `
             appearanceFlip(this)
@@ -226,6 +293,10 @@
             appearanceLeft.value = `${appearanceList[h-1]}`
             appearanceLeft.nextElementSibling.innerText = `${appearanceList[h-1]}`
             changeQuestion()
+            blindImg.classList.add('blindImgAnimation')
+            setTimeout(() => {
+                blindImg.classList.remove('blindImgAnimation')
+            }, 300)
         })
 
         function addFlipCard() {
@@ -245,12 +316,12 @@
         function traitPart() {
             makePart.innerText = `請選擇寵物特質`
             makeContent.innerHTML = `
-            <div class='col'>
+            <div class='col-12 col-md-5'>
                     <input type="radio" id="trait-left" name='option' class="col-6 radioOption" value='${traitList[0]}'>
                     <label for='trait-left' id='trait-left' class='radioLabel'>${traitList[0]}</label>
                 </div>
-                <p class='col orContent'>或是</p>
-                <div class='col'>
+                <p class='col-12 col-md-2 orContent'>或是</p>
+                <div class='col-12 col-md-5'>
                     <input type="radio" id="trait-right" name='option' class="col-6 radioOption" value='${traitList[1]}'>
                     <label for='trait-right' id='trait-right' class='radioLabel'>${traitList[1]}</label>
                 </div>
@@ -303,21 +374,25 @@
         function naming() {
             makePart.innerText = `請為寵物命名`
             makeContent.innerHTML = `
-                <div class="input-group my-5 mx-auto flex-nowrap ms-1">
+                <div class="input-group my-3 mx-auto flex-nowrap ms-1">
                     <span class="input-group-text inputGroup-sizing-lg">輸入名稱</span>
                     <input type="text" class="form-control" id='name-text' required>
                 </div>
-                <div class='col-10 col-md-5 my-5 mx-auto'>
+                <div class='col-10 col-md-3 my-3 mx-auto'>
                     <button type="submit" class="btn" id='make-done'>
                         <a href="./partnerspage.html" class='text-decoration-none'>製作完成</a>
                     </button>
                 </div>
                 `
             let makeDone = document.getElementById('make-done');
-            makeDone.addEventListener('click', function () {
+            makeDone.addEventListener('click', function (event) {
+                event.preventDefault()
                 let nameText = document.getElementById('name-text').value;
                 localStorage.setItem('partnerName', nameText);
-
+                document.getElementById('loading').classList.add('d-block')
+                setTimeout(() => {
+                    window.open('./partnerspage.html', '_self')
+                }, 1500)
             })
         }
     </script>

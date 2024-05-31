@@ -24,26 +24,28 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
     <div class="partnerspage container-fluid">
         <div class="grid-container grid">
             <div class="grid-item grid-item1">
-                <h2 class="py-3">夥伴基本資料</h2>
-                <div class="d-flex justify-content-center">
+                <div class="">
+                    <h2 class="p-3 highlight">夥伴基本資料</h2>
+                </div>
+                <div class="d-flex justify-content-center p-3 lightText">
                     <p class="fs-4">夥伴姓名：</p>
                     <p id="partner-name" class="fs-4"></p>
                 </div>
-                <div id="photo"></div>
-
+                <div id="photo" class="my-2"></div>
+                <div class="col-lg-12 p-3 lh-lg lightText" id="info"></div>
             </div>
 
             <div class="flex-lg-column grid-item grid-item2 text-start">
-                <div class="col-lg-12 p-3" id="info"></div>
+
                 <div class="col-12">
-                    <h2 class="pb-3">
+                    <h2 class="p-3 highlight">
                         來跟你的夥伴互動吧！
                     </h2>
-                    <div class="container col-12 col-md-8 col-lg-10 mx-auto my-2">
+                    <div class="container col-12 col-md-8 col-lg-10 mx-auto my-4">
                         <div class="iphone bg-white w-100 position-relative">
                             <div class="d-flex justify-content-between px-3 py-1">
                                 <div>
@@ -55,7 +57,7 @@
                                     <i class="fa-solid fa-battery-full mx-1"></i>
                                 </div>
                             </div>
-                            <div class="container-fluid text-start fs-3" id="interactive-partner-name"></div>
+                            <div class="container-fluid text-start fs-3 lightText" id="interactive-partner-name"></div>
                             <div class="py-3 my-2" id="interactive-partner-feedback">
                                 <div class="d-flex justify-content-start">
                                     <div class="iphone-pic ms-2" id="interactive-partner-photo"></div>
@@ -65,41 +67,41 @@
                                 </div>
                             </div>
                             <div class="col-10 mx-auto d-flex flex-nowrap" id="interactive">
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="love-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="love-card">
                                     <i class="fa-solid fa-hand-holding-heart"></i>
-                                    <div class="card-text ">關心</div>
+                                    <div class="option-text ">關心</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="money-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="money-card">
                                     <i class="fa-solid fa-hand-holding-dollar"></i>
-                                    <div class="card-text">零用錢</div>
+                                    <div class="option-text">零用錢</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="command-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="command-card">
                                     <i class="fa-solid fa-thumbs-up"></i>
-                                    <div class="card-text">稱讚</div>
+                                    <div class="option-text">稱讚</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="eating-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="eating-card">
                                     <i class="fa-solid fa-utensils"></i>
-                                    <div class="card-text">餵食</div>
+                                    <div class="option-text">餵食</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="water-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="water-card">
                                     <i class="fa-solid fa-droplet"></i>
-                                    <div class="card-text">喝水</div>
+                                    <div class="option-text">喝水</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="wash-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="wash-card">
                                     <i class="fa-solid fa-shower"></i>
-                                    <div class="card-text">洗澡</div>
+                                    <div class="option-text">洗澡</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="play-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="play-card">
                                     <i class="fa-solid fa-gamepad"></i>
-                                    <div class="card-text">玩耍</div>
+                                    <div class="option-text">玩耍</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="hand-out-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="hand-out-card">
                                     <i class="fa-solid fa-person-walking"></i>
-                                    <div class="card-text">散步</div>
+                                    <div class="option-text">散步</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 options-behaviors" id="toilet-card">
+                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="toilet-card">
                                     <i class="fa-solid fa-toilet"></i>
-                                    <div class="card-text">廁所</div>
+                                    <div class="option-text">廁所</div>
                                 </div>
                             </div>
                         </div>
@@ -110,84 +112,84 @@
             <div class="grid-item grid-item3">
                 <div class="container-fluid py-2 d-flex flex-wrap">
                     <div class="col-12 p-2 achievement-progress progress-love">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-hand-holding-heart my-2"></i>
-                            <div class="card-text my-1">關心</div>
+                            <div class="option-text my-1">關心</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="love-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="love-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-money">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-hand-holding-dollar my-2"></i>
-                            <div class="card-text my-1">零用錢</div>
+                            <div class="option-text my-1">零用錢</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="money-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="money-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-command">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-thumbs-up my-2"></i>
-                            <div class="card-text my-1">稱讚</div>
+                            <div class="option-text my-1">稱讚</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="command-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="command-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-eating">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-utensils my-2"></i>
-                            <div class="card-text my-1">餵食</div>
+                            <div class="option-text my-1">餵食</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="eating-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="eating-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-water">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-droplet my-2"></i>
-                            <div class="card-text my-1">喝水</div>
+                            <div class="option-text my-1">喝水</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="water-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="water-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-wash">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-shower my-2"></i>
-                            <div class="card-text my-1">洗澡</div>
+                            <div class="option-text my-1">洗澡</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="wash-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="wash-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-play">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-gamepad my-2"></i>
-                            <div class="card-text my-1">玩耍</div>
+                            <div class="option-text my-1">玩耍</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="play-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="play-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-hand-out">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-person-walking my-2"></i>
-                            <div class="card-text my-1">散步</div>
+                            <div class="option-text my-1">散步</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="hand-out-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="hand-out-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-toilet">
-                        <div class="card">
+                        <div>
                             <i class="fa-solid fa-toilet my-2"></i>
-                            <div class="card-text my-1">廁所</div>
+                            <div class="option-text my-1">廁所</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 0%;" id="toilet-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="toilet-progress-bar"></div>
                         </div>
                     </div>
                 </div>
@@ -250,7 +252,7 @@
 
         let info = document.getElementById('info');
         info.innerHTML = ` 
-        <p class='fs-4 m-0'> ${partner_name}，是一位${partnerTraitArr[0]}、${partnerTraitArr[1]}、${partnerTraitArr[2]}，<br>而且喜愛${partnerTraitArr[3]}的夥伴！ </p>
+        <p class='fs-4 m-0'> ${partner_name}，是一位${partnerTraitArr[0]}、${partnerTraitArr[1]}、${partnerTraitArr[2]}，而且喜愛${partnerTraitArr[3]}的夥伴！ </p>
         `
 
         if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '大耳朵', '身強體壯'].toString()) {
@@ -356,7 +358,7 @@
             achievementProgress[n].style.display = 'block'
             setTimeout(() => {
                 achievementProgress[n].style.display = 'none'
-            }, 3000)
+            }, 1000)
             progressBar[n].style.width = cardTimes[n] * 20 + '%'
             let randomNum = Math.floor(Math.random() * feedback.length)
             interactivePartnerFeedback.innerHTML += `
@@ -372,7 +374,7 @@
             let textFeedback = document.querySelectorAll('.textFeedback')
             setTimeout(() => {
                 textFeedback[0].classList.remove('textFeedback')
-            }, 3000)
+            }, 1000)
 
             let sum = 0
             cardTimes.forEach((x) => {
@@ -380,14 +382,14 @@
             })
             let liveModal = document.querySelector('#liveModal')
             const modal = new bootstrap.Modal(liveModal)
-            if (sum == 5) {
+            if (sum == 3) {
                 modal.show()
             }
         }
 
-        let card = document.querySelectorAll('.options-behaviors')
+        let optionsBehaviors = document.querySelectorAll('.optionsBehaviors')
         for (let i = 0; i < behaviors.length; i++) {
-            card[i].addEventListener('click', function () {
+            optionsBehaviors[i].addEventListener('click', function () {
                 progressBarWidth(this)
             })
         }
@@ -399,7 +401,7 @@
             localStorage.setItem('partnerTrait', null)
             localStorage.setItem('partnerAppearance', null)
             localStorage.setItem('partnerName', null)
-            localStorage.setItem('shoppingList',null)
+            localStorage.setItem('shoppingList', null)
         })
     </script>
 </body>

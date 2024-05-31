@@ -1,30 +1,47 @@
-/* #makeBody{
-    background-image: linear-gradient(white , var(--main));
-} */
-
-.conversationOutside {
-    bottom: 0px;
-    left: 0px;
-    visibility: hidden;
+/* 過場畫面 */
+#loading{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.931);
+    z-index: 10;
+    display: none;
+}
+#loading-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.loading-foot:first-child , .loading-text{
+    transform: translate(80px,0px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.loading-foot:nth-child(2){
+    animation: foot 11s steps(11) 1 forwards;
 }
 
+/* 右下互動寵物 */
+/* .conversationOutside {
+    bottom: 0px;
+    left: 0px;
+    width: 200px;
+    visibility: hidden;
+}
 .conversationOutside img {
     max-width: 100%;
     object-fit: contain;
     bottom: 5px;
     left: 5px;
 }
-
 #conversation {
     border-radius: 50%;
     background-color: var(--btn);
     width: 250px;
     height: 100px;
-    bottom: 200px;
     left: 50px;
     transform: rotate(-10deg);
 }
-
 #conversation::before {
     content: '';
     border-top: 20px solid var(--btn);
@@ -36,17 +53,14 @@
     top: 93px;
     left: 55px;
 }
-
 .conversationText {
     top: 25%;
     left: 15%;
 }
-
 .conversationNaming{
     top: 35%;
     left: 15%;
 }
-
 @keyframes jump {
     0% {
         transform: translate(0, 0);
@@ -60,7 +74,6 @@
         transform: translate(0, 0);
     }
 }
-
 #jumpShadow {
     background-color: rgba(128, 128, 128, 0.758);
     width: 60px;
@@ -69,11 +82,9 @@
     bottom: 10px;
     left: 35%;
 }
-
 .jumpShadowAnimation {
     animation: jumpShadow .5s ease-in-out;
 }
-
 @keyframes jumpShadow {
     0% {
         transform: scale(0);
@@ -87,38 +98,47 @@
     100% {
         transform: scale(0);
     }
-}
+} */
 
+/* 上方選擇區域 */
+#make-container{
+    margin-top: 3%;
+}
+#make-container h1{
+    color: var(--main-head);
+    background-image: linear-gradient(transparent 50% , var(--main) 50%);
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .option-content {
-    /* border: 5px var(--main-text) dashed; */
     height: 85vh;
 }
-
 .radioOption {
     display: none;
+    /* 隱藏選項圓點 */
 }
-
 .radioOption:hover+.radioLabel {
-    background-color: var(--btn);
-    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 3px var(--dark-text);
 }
-
 .radioLabel {
     font-size: 35px;
-    background-color: var(--btn);
+    border: 2px solid var(--dark-text);
+    border-radius: 30px;
+    color: var(--dark-text);
     border-radius: 5px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 .orContent {
     font-size: 30px;
     align-content: center;
+    color: var(--main-head);
 }
-
 @keyframes flipCard {
+    /* 上方選擇區域翻頁效果 */
     0% {
         transform: rotateY(270deg);
     }
@@ -127,142 +147,161 @@
         transform: rotateY(360deg);
     }
 }
-
 .radioLabelFlip {
     animation: flipCard .8s ease-in-out;
 }
 
-@keyframes checkedAppearance {
-    0% {
-        transform: translate(15px, -200px);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
+/* 下方已選擇區域 */
+.checkedOption {
+    font-size: 16px;
+    color: var(--dark-text);
+    border-radius: 25%;
+    line-height: 25px;
+    height: fit-content;
 }
-
+.checkedOption:hover{
+    transform: scale(1.1);
+}
+/* 期待分別往左右兩邊跑，故寫成兩個動畫 */
+/* 下方已選區域發牌效果-特質 */
 @keyframes checkedTrait {
     0% {
         transform: translate(-15px, -200px);
     }
-
     100% {
         transform: translate(0, 0);
     }
 }
-
-.checkedOption {
-    background-color: var(--btn);
-    font-size: 16px;
-    border-radius: 25%;
-    line-height: 100%;
-    height: fit-content;
-}
-
 .checkedTrait {
     animation: checkedTrait .5s ease-in;
 }
-
+/* 下方已選區域發牌效果-外表 */
+@keyframes checkedAppearance {
+    0% {
+        transform: translate(15px, -200px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
 .checkedAppearance {
     animation: checkedAppearance .5s ease-in;
 }
 
-#blindImg {
-    right: 50px;
-    bottom: 50px;
-    transform: rotate(10deg);
-    visibility: hidden;
-}
 
+/* 已選選項及剪影間的關連線 */
+.relateLine{
+    border-bottom: 2px dashed var(--dark-text);
+    height: 30px;
+    width: 100%;
+}
+#relateLine1 , #relateLine8{
+    transform: rotate(15deg);
+}
+#relateLine2 , #relateLine7{
+    transform: rotate(5deg);
+}
+#relateLine3 , #relateLine6{
+    transform: rotate(-5deg);
+}
+#relateLine4 , #relateLine5{
+    transform: rotate(-15deg);
+}
+/* 剪影彈跳效果 */
+@keyframes blindAnimation {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.2);
+    }    
+}
+.blindImgAnimation{
+    animation: blindAnimation .3s linear;
+}
+#blindImg , .relateLine{
+    display: none;
+    /* 預設不顯示，min-width768顯示 */
+}
 #blindImg img {
+    filter: brightness(0%);
     max-width: 100%;
     object-fit: contain;
     border-radius: 50%;
-    filter: blur(15px);
+}
+/* 已選擇區域的外表、特質卡 */
+.appearanceCard , .traitCard{
+    width: 100%;
+    height: 50px;
+    border: 2px dashed var(--dark-text);
+    padding: 5px;
 }
 
-#blindImg div {
-    z-index: 1;
-    top: 30%;
-    left: 35%;
-}
-
-@media screen and (min-width:992px) {
-
-    .conversationOutside,
-    #blindImg {
-        visibility: visible;
-    }
-
-}
-
-
+/* 製作完成按鈕 */
 #make-done {
-    background-color: var(--btn);
+    font-size: 25px;
+    border:1px solid var(--dark-text);
 }
-
 #make-done a {
-    color: black;
+    color: var(--dark-text);
 }
-
 #make-done:hover {
-    background-color: var(--btnClick);
-    color: white;
+    transform: scale(1.1);
 }
 
-#make-done:hover a {
-    color: white;
+/* 腳印部分、前進效果 */
+#footprintDiv{
+    width: 80%;
+    height: 100px;
+    bottom: 3%;
+    left: 10%;
+    line-height: 80px;
+}
+.footprintItem i{
+    color: rgb(190, 190, 190);
+    opacity: .8;
+}
+.footprintItem:nth-child(even){
+    width: 50%;
+    margin-top: auto;
+    transform: rotate(5deg);
+}
+.footprintItem:nth-child(odd){
+    width: 50%;
+    margin-bottom: auto;
+    transform: rotate(-5deg);
 }
 
-@media screen and (min-width:568px) {
-    .checkedOption {
-        font-size: 18px;
-    }
-}
-
+/* RWD */
 @media screen and (min-width:768px) {
     .radioLabel {
-        font-size: 55px;
-        /* width: 80%; */
-        /* height: 300px; */
-        /* writing-mode: vertical-lr; */
+        font-size: 48px;
         align-content: center;
     }
-
     .orContent {
-        font-size: 40px;
-        /* writing-mode: vertical-lr; */
+        font-size: 30px;
     }
-
     .checkedOption {
         font-size: 24px;
     }
-
-}
-
-@media screen and (min-width:1200px) {
-    #conversation {
-        bottom: 250px;
+    /* .conversationOutside{
+        width: 280px;
     }
-
     #jumpShadow {
-        left: 38%;
+        left: 110px;
+    } */
+    #blindImg , .relateLine{
+        display: block;
+    }
+    #footDiv{
+        visibility: visible;
     }
 }
-
-@media screen and (min-width:1500px) {
-    #conversation {
-        bottom: 300px;
+/* @media screen and (min-width:1400px) {
+    .conversationOutside {
+        width: 350px;
     }
-}
-
-@media screen and (min-width:1800px) {
-    #conversation {
-        bottom: 350px;
-    }
-
     #jumpShadow {
-        left: 40%;
+        left: 150px;
     }
-}
+} */

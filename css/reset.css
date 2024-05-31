@@ -1,56 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Bungee+Shade&family=Caveat+Brush&family=Comic+Neue:wght@300&family=Concert+One&family=Darumadrop+One&family=Fugaz+One&family=Itim&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nanum+Pen+Script&family=Noto+Sans+TC:wght@100..900&family=Protest+Riot&family=Rubik+Doodle+Shadow&family=Share+Tech+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Bungee+Shade&family=Caveat+Brush&family=Comic+Neue:wght@300&family=Concert+One&family=Darumadrop+One&family=Fugaz+One&family=Itim&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nanum+Pen+Script&family=Noto+Sans+TC:wght@100..900&family=Protest+Riot&family=Rubik+Doodle+Shadow&family=Share+Tech+Mono&family=Zen+Maru+Gothic&display=swap');
 
-
-:root{
-    --main:	rgb(255, 236, 239);
-    --main-text:rgb(236, 147, 147);
-    --btn:rgb(254, 185, 185);
-    --btnClick:rgb(214, 107, 107);
-}
-
+/* 整體設定 */
 *{
     margin: 0;
     padding: 0;
 }
-
+/* 背景顏色設定 */
 body{
-    background-image: linear-gradient(white , var(--main));
+    background-color: #f9f9f9 !important;   
 }
-
-#logo-img{
-    width: 100px;
-    border-radius: 0px;
-}
-
-#logo-img:hover{
-    transform: rotate(5deg);
-}
-
+/* 文字置中 */
 div{
     text-align: center;
 }
+/* 圖片圓角 */
+img{
+    border-radius: 25px;
+}
 
-.homepage , .makepage , .partnerspage , .loginpage , .premiumpage , nav , .footer-page{
+/* 顏色變數設定 */
+:root{
+    --main:	#f9f3ee;
+    --light-color:#FFF8EC;
+    --dark-color:#E8D3BE;
+    --main-head:#695C4F;
+    --dark-text:#5f746e;
+    --highlight-text:rgb(236, 174, 97);
+    /* 結帳區域確認結帳按鈕仍是這個顏色，待修改 */
+}
+
+/* 頁面字體共通設定 */
+.homepage , .makepage , .partnerspage , .loginpage , .premiumpage , .cartpage , nav , .footer-page{
     font-family: "Darumadrop One","Zen Maru Gothic", serif, sans-serif;
     font-weight: 900;
     font-style: normal;
     letter-spacing: 1px;
     word-spacing: 1px;
 }
-
-i{
-    color: var(--main-text);
+.darkText{
+    color: var(--main-head);
+}
+.lightText{
+    color: var(--highlight-text);
+}
+/* 標題樣式class */
+.highlight{
+    background-image: linear-gradient(transparent 50% , var(--main) 50%);
+    margin-left: 5%;
+    margin-right: 5%;
+    color:var(--main-head) ;
 }
 
-img{
-    border-radius: 25px;
+/* 導覽列樣式 */
+#logo-img{
+    width: 100px;
+    border-radius: 0px;
 }
-
-.options-i{
-    line-height: 300px;
+#logo-img:hover{
+    transform: rotate(5deg);
 }
+.navbar-brand i , .navbar-toggler i{
+    color: var(--main-head);
+}
+.navbar-brand:hover i{
+    color: var(--highlight-text);
+}
+.navbar-toggler:focus i{
+    color: var(--highlight-text);
+}
+.navbar-nav a{
+    color: var(--main-head);
+    font-size: 25px;
+}
+.navbar-nav a:hover{
+    color: var(--highlight-text);
+    transform: scale(1.1);
+}
+.navbar-nav a:hover > i{
+    color: var(--highlight-text);
+    transform: scale(1.1);
+}
+.navbar-toggler:focus{
+    box-shadow: 0 0 0 !important;
+}
+.navbar-toggle:checked+.collapse {
+    display: block;
+}
+/* footer樣式 */
 
+/* toTheTop樣式 */
 #toTheTop{
     bottom: 5%;
     right: 5%;
@@ -58,24 +97,6 @@ img{
     border-radius: 50%;
     transform: rotate(5deg);
 }
-
 #toTheTop:hover{
     background-color: var(--btnClick);
-}
-
-i:hover{
-    color: var(--btnClick);
-}
-
-.navbar-nav a{
-    color: var(--main-text);
-    font-size: 25px;
-}
-
-.navbar-nav a:hover{
-    color: var(--btnClick);
-}
-
-.navbar-nav a:hover > i{
-    color: var(--btnClick);
 }

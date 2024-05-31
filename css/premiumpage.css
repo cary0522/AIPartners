@@ -1,49 +1,39 @@
+/* 兩個區域共同class */
 .plan{
     border: 3px dashed black;
 }
 
-/* .plan-ones .pet-card-img{
-    filter: blur(5px);
-} */
-
+/* 單隻購買區域 */
 .pet-card-img{
     border-radius: 100px;
 }
-
-.pet-card-lock{
-    z-index: 1;
-    top: 15%;
-    left: 38%;
+.goodsNameText{
+    width: 13.5ch;
 }
-
 input:invalid{
     color: red;
 }
-
+/* 加入購物車按鈕設定 */
 .submitText small{
     font-size: 12px;
 }
-
 .submitText i{
     color: gray;
 }
-
 .submitText:hover i{
     color: white;
 }
-
 .toastLink a{
     color: gray;
 }
-
 .toastLink:hover a{
     color: white;
 }
 
+/* 訂閱制區域 */
 .month-card{
     overflow-x: scroll;
 }
-
 .month-card-blur{
     width: 300%;
     height: 100%;
@@ -51,11 +41,9 @@ input:invalid{
     background-color: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(5px);
 }
-
 .month-card:hover .month-card-blur{
     display: none;
 }
-
 .month-card-pet img{
     max-width: 80%;
     object-fit: contain;

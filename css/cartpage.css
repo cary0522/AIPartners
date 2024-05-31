@@ -1,22 +1,31 @@
+/* 購買單隻區域 */
 .cart-img{
     max-height: 300px;
-    object-fit: contain;
+    object-fit: cover;
+}
+#cartPart span , #cartPart span i , .cart-text{
+    font-size: 1.5rem;
+    color :	#5b5b5be0;
 }
 
-.cart-text{
-    font-size: 12px;
+/* 訂閱制區域 */
+#monthPart span , #monthPart span i , .cart-text{
+    font-size: 1.5rem;
+    color :	#5b5b5be0;
 }
 
-@media screen and (min-width:650px) {
-    .cart-text{
-        font-size: 18px;
-    }
-    
+/* 總金額區域 */
+#totalPrt span , #totalPrt span i , .cart-text{
+    font-size: 1.5rem;
+    color :	#5b5b5be0;
 }
-
-@media screen and (min-width:840px) {
-    .cart-text {
-        font-size: 24px;
-    }
-    
+/* #totalPart{
+    background-image: radial-gradient( circle ,var(--complementary-text) 0%, var(--complementary-text)50%, transparent 50% );
+} */
+#btnCheckOut{
+    background-color: var(--highlight-text);
+    color: var(--main);
+}
+#btnCheckOut:hover{
+    background-color: var(--main-head);
 }

@@ -88,7 +88,7 @@
         const eToast = new bootstrap.Toast(errorToast)
         logInBtn.addEventListener('click',function(){
             if(email.value == 'abc@xxx.com' && password.value == '1234'){
-                window.open('./partnerspage.html')
+                window.open('./partnerspage.html','_self')
             }else{
                 eToast.show()
             }

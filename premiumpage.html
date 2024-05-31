@@ -47,7 +47,7 @@
                         <input type="text" hidden value="199" name="monthPrice">                        
                         <h5>月費制</h5>
                         <p>每月
-                            <span>199</span>
+                            <span class="text-dark">199</span>
                             <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
                             ，一次獲得五位夥伴
                         </p>
@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="toast-container position-fixed top-50 start-50 translate-middle">
-        <div class="toast bg-light" role="alert" id="cartToast">
+        <div class="toast bg-light" role="alert" id="cartToast" data-bs-delay="1000">
             <div class="toast-header justify-content-end">
                 <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
             </div>
@@ -72,14 +72,14 @@
                 <p>
                     <i class="fa-solid fa-circle-check mx-1"></i>成功加入購物車
                 </p>
-                <button class="btn btn-outline-secondary" id="cartToastLink">
+                <button class="btn btn-outline-secondary toastLink" id="cartToastLink">
                     <a href="./cartpage.html" class="text-decoration-none">前往購物車</a>
                 </button>
             </div>
         </div>
     </div>
     <div class="toast-container position-fixed top-50 start-50 translate-middle">
-        <div class="toast bg-light" role="alert" id="monthToast">
+        <div class="toast bg-light" role="alert" id="monthToast" data-bs-delay="1000">
             <div class="toast-header justify-content-end">
                 <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
             </div>
@@ -113,11 +113,11 @@
             this.image = src;
         }
 
-        petGoods[0] = new Goods(`毛絨可愛、大眼睛、<br>小耳朵的可愛寵物`, 40, "./partners_photo/0011.jpg")
-        petGoods[1] = new Goods(`現代機械、小眼睛、<br>大耳朵的強壯寵物`, 30, "./partners_photo/1100.jpg")
-        petGoods[2] = new Goods(`毛絨可愛、小眼睛、<br>大耳朵的可愛寵物`, 50, "./partners_photo/0101.jpg")
-        petGoods[3] = new Goods(`現代機械、大眼睛、<br>小耳朵的強壯寵物`, 40, "./partners_photo/1010.jpg")
-        petGoods[4] = new Goods(`毛絨可愛、大眼睛、<br>大耳朵的可愛寵物`, 50, "./partners_photo/0001.jpg")
+        petGoods[0] = new Goods(`毛絨可愛、大眼睛、小耳朵的可愛寵物`, 40, "./partners_photo/0011.jpg")
+        petGoods[1] = new Goods(`現代機械、小眼睛、大耳朵的強壯寵物`, 30, "./partners_photo/1100.jpg")
+        petGoods[2] = new Goods(`毛絨可愛、小眼睛、大耳朵的可愛寵物`, 50, "./partners_photo/0101.jpg")
+        petGoods[3] = new Goods(`現代機械、大眼睛、小耳朵的強壯寵物`, 40, "./partners_photo/1010.jpg")
+        petGoods[4] = new Goods(`毛絨可愛、大眼睛、大耳朵的可愛寵物`, 50, "./partners_photo/0001.jpg")
 
         localStorage.setItem('petGoods',JSON.stringify(petGoods))
         let petGoodList = document.getElementById('petGoodList')
@@ -128,7 +128,7 @@
                 <form class='cartForm' action='#' method='POST' id='form${i}'>
                     <img src="${petGoods[i].image}" alt="" class='w-75 pet-card-img m-1'>
                     <input type="text" hidden value="${petGoods[i].image}" name='goodsImage'>
-                    <p>${petGoods[i].name}</p>
+                    <p class='text-wrap mx-auto goodsNameText'>${petGoods[i].name}</p>
                     <input type="text" hidden value="${petGoods[i].name}" name='goodsName'>
                     <p>${petGoods[i].price}
                         <i class='fa-solid fa-dollar-sign text-dark'></i>    
