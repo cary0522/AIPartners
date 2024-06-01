@@ -17,21 +17,46 @@
     <!-- 轉場畫面 -->
     <div id="loading" class="row">
         <div id="loading-content" class="mx-auto row align-self-center">
-            <div class="loading-foot">
+            <div class="loading-foot my-2 darkText">
                 <i class="fa-solid fa-paw fa-spin fa-5x"></i>
             </div>
-            <div class="loading-text">請稍候，正在努力製作您的專屬寵物</div>
+            <div class="loading-text my-2 darkText">請稍候，正在努力製作您的專屬寵物</div>
         </div>
     </div>
+    <!-- <div id="loading" class="row">
+        <div id="loading-content" class="mx-auto row align-self-center">
+            <div class="loading-foot my-5 darkText d-flex justify-content-center">
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+                <div class="loadingFootprint">
+                    <i class="fa-solid fa-paw fa-rotate-90 fa-5x"></i>
+                </div>
+            </div>
+            <div class="loading-text my-5 darkText">請稍候，正在努力製作您的專屬寵物</div>
+        </div>
+    </div> -->
 
     <div class="makepage container-fluid d-flex justify-content-center p-3 position-relative">
         <div class="option-content col-9 col-md-12 col-lg-8 p-3">
-            <!-- 右下互動寵物 -->
-            <!-- <div class="position-absolute conversationOutside">
-                <div class="position-relative col-12" id="conversation"></div>
-                <img src="./0000.nobackground.png" alt="" id="conversationImg">
-                <div id="jumpShadow" class="position-absolute"></div>
-            </div> -->
             <div class="container-fluid col-12" id="make-container">
                 <h1 id="makePart">選擇寵物外表</h1>
                 <div class="col-12 my-2 mx-auto py-4 px-2 align-self-center d-md-flex justify-content-md-between"
@@ -125,34 +150,7 @@
         let traitArr = [];
         let appearanceArr = [];
 
-        // let conversationImg = document.getElementById('conversationImg')
-        let jumpShadow = document.getElementById('jumpShadow')
-        // let conversation = document.getElementById('conversation')
         let cTimes = 0
-
-        // let conversationContentType = ['你喜歡什麼樣的寵物呢？', '你喜歡什麼特質的寵物呢？']
-        // let conversationContentQuestion = [
-        //     `${appearanceList[0]}或${appearanceList[1]}？`,
-        //     `${appearanceList[2]}或${appearanceList[3]}？`,
-        //     `${appearanceList[4]}或${appearanceList[5]}？`,
-        //     `${appearanceList[6]}或${appearanceList[7]}？`,
-        //     `${traitList[0]}或${traitList[1]}？`,
-        //     `${traitList[2]}或${traitList[3]}？`,
-        //     `${traitList[4]}或${traitList[5]}？`,
-        //     `${traitList[6]}或${traitList[7]}？`
-        // ]
-        // let count = ['1/8', '2/8', '3/8', '4/8', '5/8', '6/8', '7/8', '8/8', ]
-
-        // conversation.innerHTML = `
-        // <div class='position-absolute conversationText'>
-        // <small>${conversationContentType[0]}</small>
-        // <br>
-        // <small>${conversationContentQuestion[0]}</small>
-        // <br>
-        // <small>${count[0]}</small>
-        // </div>
-        // `
-
         let footDivI = document.querySelectorAll('.footDivI')
 
         function changeQuestion() {
@@ -160,41 +158,6 @@
                 footDivI[cTimes].style = 'color:var(--highlight-text);'
             }
             cTimes += 1
-            // conversationImg.style = 'animation: jump .5s ease-in-out;'
-            // conversation.style = 'animation: jump .5s ease-in-out;'
-            // jumpShadow.classList.add('jumpShadowAnimation')
-            // setTimeout(() => {
-            //     conversationImg.style = ' '
-            //     conversation.style = ' '
-            //     jumpShadow.classList.remove('jumpShadowAnimation')
-            // }, 500)
-            // if (cTimes == 8) {
-            //     conversation.innerHTML = `
-            //         <div class='position-absolute conversationNaming'>
-            //             <small>幫您專屬的寵物取個名字吧！</small>
-            //         </div>
-            //         `
-            // } else if (cTimes > 0 && cTimes <= 4) {
-            //     conversation.innerHTML = `
-            //         <div class='position-absolute conversationText'>
-            //             <small>${conversationContentType[0]}</small>
-            //             <br>
-            //             <small>${conversationContentQuestion[cTimes]}</small>
-            //             <br>
-            //             <small>${count[cTimes]}</small>
-            //         </div>
-            //         `
-            // } else {
-            //     conversation.innerHTML = `
-            //         <div class='position-absolute conversationText'>
-            //             <small>${conversationContentType[1]}</small>
-            //             <br>
-            //             <small>${conversationContentQuestion[cTimes]}</small>
-            //             <br>
-            //             <small>${count[cTimes]}</small>
-            //         </div>
-            //         `
-            // }
         }
 
         function appearanceCardContent() {
@@ -371,6 +334,7 @@
 
         }
 
+        // 命名
         function naming() {
             makePart.innerText = `請為寵物命名`
             makeContent.innerHTML = `
@@ -384,6 +348,7 @@
                     </button>
                 </div>
                 `
+            // 過場頁面顯示
             let makeDone = document.getElementById('make-done');
             makeDone.addEventListener('click', function (event) {
                 event.preventDefault()

@@ -45,7 +45,7 @@
     overflow-x: auto ;
 }
 .optionsBehaviors{
-    background-color: var(--light-color);
+    background-color: var(--main);
     border-radius: 25%;
 }
 .option-text{
