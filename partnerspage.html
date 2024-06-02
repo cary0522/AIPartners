@@ -13,11 +13,12 @@
 
 <body>
     <div class="header-page"></div>
+    <!-- 彈跳提示付費 -->
     <div class="modal fade" data-bs-backdrop="static" tabindex="-1" id="liveModal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <p class="pt-3 mx-1 fs-3">喜歡您的寵物嗎？</p>
-                <p class="pb-3 mx-1 fs-3">一起來解鎖更多寵物！</p>
+                <p class="pt-3 mx-1 fs-3 darkText">喜歡您的寵物嗎？</p>
+                <p class="pb-3 mx-1 fs-3 darkText">一起來解鎖更多寵物！</p>
                 <div class="modal-footer d-flex justify-content-evenly py-3">
                     <button class="btn border rounded" type="button" data-bs-dismiss="modal">稍後解鎖</button>
                     <a href="./premiumpage.html" class="btn border rounded">前往解鎖</a>
@@ -25,10 +26,12 @@
             </div>
         </div>
     </div>
+    <!-- 主要內容 -->
     <div class="partnerspage container-fluid">
         <div class="grid-container grid">
+            <!-- 基本資料 -->
             <div class="grid-item grid-item1">
-                <div class="">
+                <div>
                     <h2 class="p-3 highlight">夥伴基本資料</h2>
                 </div>
                 <div class="d-flex justify-content-center p-3 lightText">
@@ -38,15 +41,14 @@
                 <div id="photo" class="my-2"></div>
                 <div class="col-lg-12 p-3 lh-lg lightText" id="info"></div>
             </div>
-
+            <!-- 互動區域 -->
             <div class="flex-lg-column grid-item grid-item2 text-start">
-
                 <div class="col-12">
                     <h2 class="p-3 highlight">
                         來跟你的夥伴互動吧！
                     </h2>
                     <div class="container col-12 col-md-8 col-lg-10 mx-auto my-4">
-                        <div class="iphone bg-white w-100 position-relative">
+                        <div class="partnersIphone bg-white w-100 position-relative">
                             <div class="d-flex justify-content-between px-3 py-1">
                                 <div>
                                     <p>AI partners</p>
@@ -67,39 +69,39 @@
                                 </div>
                             </div>
                             <div class="col-10 mx-auto d-flex flex-nowrap" id="interactive">
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="love-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="love-card">
                                     <i class="fa-solid fa-hand-holding-heart"></i>
                                     <div class="option-text ">關心</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="money-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="money-card">
                                     <i class="fa-solid fa-hand-holding-dollar"></i>
                                     <div class="option-text">零用錢</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="command-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="command-card">
                                     <i class="fa-solid fa-thumbs-up"></i>
                                     <div class="option-text">稱讚</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="eating-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="eating-card">
                                     <i class="fa-solid fa-utensils"></i>
                                     <div class="option-text">餵食</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="water-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="water-card">
                                     <i class="fa-solid fa-droplet"></i>
                                     <div class="option-text">喝水</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="wash-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="wash-card">
                                     <i class="fa-solid fa-shower"></i>
                                     <div class="option-text">洗澡</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="play-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="play-card">
                                     <i class="fa-solid fa-gamepad"></i>
                                     <div class="option-text">玩耍</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="hand-out-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="hand-out-card">
                                     <i class="fa-solid fa-person-walking"></i>
                                     <div class="option-text">散步</div>
                                 </div>
-                                <div class="m-1 px-2 py-4 col-3 optionsBehaviors" id="toilet-card">
+                                <div class="m-1 px-2 py-4 col-3 col-xxl-2 optionsBehaviors" id="toilet-card">
                                     <i class="fa-solid fa-toilet"></i>
                                     <div class="option-text">廁所</div>
                                 </div>
@@ -108,7 +110,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- 成就區域，點擊才會顯示 -->
             <div class="grid-item grid-item3">
                 <div class="container-fluid py-2 d-flex flex-wrap">
                     <div class="col-12 p-2 achievement-progress progress-love">
@@ -117,7 +119,8 @@
                             <div class="option-text my-1">關心</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="love-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="love-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-money">
@@ -126,7 +129,8 @@
                             <div class="option-text my-1">零用錢</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="money-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="money-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-command">
@@ -135,7 +139,8 @@
                             <div class="option-text my-1">稱讚</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="command-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="command-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-eating">
@@ -144,7 +149,8 @@
                             <div class="option-text my-1">餵食</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="eating-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="eating-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-water">
@@ -153,7 +159,8 @@
                             <div class="option-text my-1">喝水</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="water-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="water-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-wash">
@@ -162,7 +169,8 @@
                             <div class="option-text my-1">洗澡</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="wash-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="wash-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-play">
@@ -171,7 +179,8 @@
                             <div class="option-text my-1">玩耍</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="play-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="play-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-hand-out">
@@ -180,7 +189,8 @@
                             <div class="option-text my-1">散步</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="hand-out-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="hand-out-progress-bar"></div>
                         </div>
                     </div>
                     <div class="col-12 p-2 achievement-progress progress-toilet">
@@ -189,20 +199,45 @@
                             <div class="option-text my-1">廁所</div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);" id="toilet-progress-bar"></div>
+                            <div class="progress-bar" style="width: 0%;background-color: var(--highlight-text);"
+                                id="toilet-progress-bar"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+    <!-- 背景裝飾腳印 -->
+    <div class="position-absolute partnersFootprintContainer">
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+        <div class="partnersFootprintItem">
+            <i class="fa-solid fa-paw fa-3x fa-rotate-180"></i>
+        </div>
+    </div>
+    <!-- 重整資料儲存空間使用，正式版記得刪除 -->
     <div>
         <button type="button" id="clear">clear</button>
     </div>
-
-
-
 
     <div class="footer-page"></div>
 
@@ -220,14 +255,15 @@
         let partnerTraitArr = JSON.parse(partner_trait);
         let partner_appearance = localStorage.getItem('partnerAppearance');
         let partnerAppearanceArr = JSON.parse(partner_appearance);
-        console.log(partnerTraitArr);
-        console.log(partnerAppearanceArr);
+        // console.log(partnerTraitArr);
+        // console.log(partnerAppearanceArr);
 
+        // 基本資料：姓名
         let partnerName = document.getElementById('partner-name');
         partnerName.innerText = partner_name;
         let interactivePartnerName = document.getElementById('interactive-partner-name')
         interactivePartnerName.innerText = partner_name;
-
+        // 基本資料：圖片
         let photoSrc = [
             'partners_photo/0000.jpg',
             'partners_photo/0001.jpg',
@@ -248,13 +284,6 @@
         ]
         let photo = document.getElementById('photo');
         let interactivePartnerPhoto = document.getElementById('interactive-partner-photo')
-
-
-        let info = document.getElementById('info');
-        info.innerHTML = ` 
-        <p class='fs-4 m-0'> ${partner_name}，是一位${partnerTraitArr[0]}、${partnerTraitArr[1]}、${partnerTraitArr[2]}，而且喜愛${partnerTraitArr[3]}的夥伴！ </p>
-        `
-
         if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '大耳朵', '身強體壯'].toString()) {
             photo.innerHTML = `<img src='${photoSrc[0]}' alt=''>`
             interactivePartnerPhoto.innerHTML =
@@ -320,7 +349,13 @@
             interactivePartnerPhoto.innerHTML =
                 `<img src="${photoSrc[15]}" alt="" class="rounded-circle flex-shrink-0">`
         }
-
+        // 基本資料：特質敘述
+        let info = document.getElementById('info');
+        info.innerHTML = ` 
+        <p class='fs-5 m-0'> ${partner_name}，是一位${partnerAppearanceArr[0]}風格、具有${partnerAppearanceArr[1]}、${partnerAppearanceArr[2]}的${partnerAppearanceArr[3]}寵物，
+            個性${partnerTraitArr[0]}、${partnerTraitArr[1]}、${partnerTraitArr[2]}，而且喜愛${partnerTraitArr[3]}！ </p>
+        `
+        // 特質決定回應句子
         let feedback = [];
         if (partnerTraitArr[0] == '活潑') {
             feedback[0] = '耶！我最喜歡您！'
@@ -342,13 +377,13 @@
         } else {
             feedback[3] = '我們一起待在家吧'
         }
+        // console.log(feedback);
 
-        console.log(feedback);
-        let interactivePartnerFeedback = document.getElementById('interactive-partner-feedback')
-
+        // 設定成就區域顯示進度條及給予隨機回應
         let behaviors = ['關心', '零用錢', '稱讚', '餵食', '喝水', '洗澡', '玩耍', '散步', '廁所']
         let cardTimes = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         let achi = document.getElementById('achi')
+        let interactivePartnerFeedback = document.getElementById('interactive-partner-feedback')
 
         function progressBarWidth(e) {
             let n = behaviors.indexOf(e.innerText)
@@ -368,25 +403,26 @@
                             </div>
                         </div>
                         `
+            // 讓對話框滑到最下面
             interactivePartnerFeedback.scrollTo(0, interactivePartnerFeedback.scrollHeight)
-
-
+            // 隨機回應句子
             let textFeedback = document.querySelectorAll('.textFeedback')
             setTimeout(() => {
                 textFeedback[0].classList.remove('textFeedback')
             }, 1000)
-
             let sum = 0
             cardTimes.forEach((x) => {
                 sum += x
             })
             let liveModal = document.querySelector('#liveModal')
+            // 彈跳視窗
             const modal = new bootstrap.Modal(liveModal)
             if (sum == 3) {
                 modal.show()
             }
         }
 
+        // 偵測點擊互動，觸發function
         let optionsBehaviors = document.querySelectorAll('.optionsBehaviors')
         for (let i = 0; i < behaviors.length; i++) {
             optionsBehaviors[i].addEventListener('click', function () {
@@ -394,7 +430,7 @@
             })
         }
 
-        // 清空localStorage
+        // 清空localStorage，正式版記得刪掉
         let btnClear = document.getElementById('clear')
         btnClear.addEventListener('click', function () {
             console.log(clear)

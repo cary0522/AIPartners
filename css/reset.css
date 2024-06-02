@@ -33,7 +33,7 @@ img {
     --light-color: #FFF8EC;
     --dark-color: #E8D3BE;
     --dark-text: #5f746e;
-    --highlight-text: rgb(236, 174, 97);
+    --highlight-text: #F2B84B;
     /* 結帳區域確認結帳按鈕仍是這個顏色，待修改 */
 }
 
@@ -41,11 +41,12 @@ img {
 .homepage,
 .makepage,
 .partnerspage,
-.premiumpag,
+.premiumpage,
 .cartpage,
 .loginpage,
 .footer-page, 
-nav
+nav,
+#loading
 {
     font-family: "Darumadrop One", "Zen Maru Gothic", serif, sans-serif;
     font-weight: 900;
@@ -54,13 +55,13 @@ nav
     word-spacing: 1px;
 }
 
+/* 常用字體顏色class */
 .darkText {
     color: var(--main-head);
 }
 .lightText {
     color: var(--highlight-text);
 }
-
 /* 標題樣式class */
 .highlight {
     background-image: linear-gradient(transparent 50%, var(--main) 50%);

@@ -8,17 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/5292bd8fe4.js" crossorigin="anonymous"></script>
-
     <title>premium</title>
 </head>
 
 <body>
     <div class="header-page"></div>
+    <!-- 主要頁面內容 -->
     <div class="premiumpage container-fluid d-md-p-2 ">
+        <!-- 購買單隻區域 -->
         <div class="plan plan-ones rounded my-3 p-2 mx-auto col-12">
             <h3 class="my-1">解鎖夥伴</h3>
             <div class="row flex-wrap justify-content-center" id="petGoodList"></div>
         </div>
+        <!-- 訂閱制區域 -->
         <div class="plan plan-month rounded my-3 p-2 mx-auto col-12">
             <h3 class="my-1">解鎖更多夥伴</h3>
             <h5></h5>
@@ -44,32 +46,33 @@
                 <div class="container-fluid my-1">
                     <form id="monthForm">
                         <input type="text" hidden value="月費制" name="monthName">
-                        <input type="text" hidden value="199" name="monthPrice">                        
-                        <h5>月費制</h5>
-                        <p>每月
-                            <span class="text-dark">199</span>
-                            <span><i class="fa-solid fa-dollar-sign text-dark"></i></span>
+                        <input type="text" hidden value="199" name="monthPrice">
+                        <h5 class="my-1 fs-5">月費制</h5>
+                        <p class="my-1 fs-5">每月
+                            <span class="darkText fs-5">199</span>
+                            <span><i class="fa-solid fa-dollar-sign darkText"></i></span>
                             ，一次獲得五位夥伴
                         </p>
                         <button type='submit'
                             class='btn btn-outline-secondary col-5 col-md-4 mx-auto my-2 px-0 py-1 submitText'
                             id="monthBtn">
                             <i class="fa-solid fa-circle-dollar-to-slot"></i>
-                            <small class="mx-2 fs-6">即刻訂閱</small>
+                            <small class="mx-2 fs-4">即刻訂閱</small>
                         </button>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
+    
+    <!-- 成功加入購物車視窗 -->
     <div class="toast-container position-fixed top-50 start-50 translate-middle">
         <div class="toast bg-light" role="alert" id="cartToast" data-bs-delay="1000">
             <div class="toast-header justify-content-end">
                 <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
             </div>
             <div class="toast-body">
-                <p>
+                <p class="darkText fs-5">
                     <i class="fa-solid fa-circle-check mx-1"></i>成功加入購物車
                 </p>
                 <button class="btn btn-outline-secondary toastLink" id="cartToastLink">
@@ -78,13 +81,33 @@
             </div>
         </div>
     </div>
+    <!-- 引導至訂閱制彈跳視窗 -->
     <div class="toast-container position-fixed top-50 start-50 translate-middle">
-        <div class="toast bg-light" role="alert" id="monthToast" data-bs-delay="1000">
+        <div class="toast bg-light" role="alert" id="guideToast" data-bs-delay="5000">
             <div class="toast-header justify-content-end">
                 <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
             </div>
             <div class="toast-body">
-                <p>
+                <p class="darkText fs-5">您的選購金額已超過 199 $</p>
+                <p class="darkText fs-5">建議選購「訂閱月費制」</p>
+                <p class="darkText fs-5">每月支付 199 $，一次獲得五位夥伴</p>
+                <button class="btn btn-outline-secondary toastLink" id="guideToastAgain">
+                    <a href="./premiumpage.html" class="text-decoration-none">重新選購</a>
+                </button>
+                <button class="btn btn-outline-secondary toastLink" id="guideToastLink">
+                    <a href="./cartpage.html" class="text-decoration-none">維持購買單隻，前往購物車</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- 訂閱制確認視窗 -->
+    <div class="toast-container position-fixed top-50 start-50 translate-middle">
+        <div class="toast bg-light" role="alert" id="monthToast" data-bs-delay="2000">
+            <div class="toast-header justify-content-end">
+                <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <p class="darkText fs-5">
                     <i class="fa-solid fa-circle-dollar-to-slot mx-1"></i>是否確認訂閱月費制？
                 </p>
                 <button class="btn btn-outline-secondary toastLink" id="monthToastLink">
@@ -105,21 +128,20 @@
         $('.header-page').load('header.html');
         $('.footer-page').load('footer.html');
 
+        // 設定可選購商品
         let petGoods = []
-
         function Goods(name, price, src) {
             this.name = name;
             this.price = price;
             this.image = src;
         }
-
         petGoods[0] = new Goods(`毛絨可愛、大眼睛、小耳朵的可愛寵物`, 40, "./partners_photo/0011.jpg")
         petGoods[1] = new Goods(`現代機械、小眼睛、大耳朵的強壯寵物`, 30, "./partners_photo/1100.jpg")
         petGoods[2] = new Goods(`毛絨可愛、小眼睛、大耳朵的可愛寵物`, 50, "./partners_photo/0101.jpg")
         petGoods[3] = new Goods(`現代機械、大眼睛、小耳朵的強壯寵物`, 40, "./partners_photo/1010.jpg")
         petGoods[4] = new Goods(`毛絨可愛、大眼睛、大耳朵的可愛寵物`, 50, "./partners_photo/0001.jpg")
 
-        localStorage.setItem('petGoods',JSON.stringify(petGoods))
+        // 將單隻購買商品渲染至頁面
         let petGoodList = document.getElementById('petGoodList')
         for (i = 0; i < petGoods.length; i++) {
             petGoodList.innerHTML +=
@@ -130,8 +152,8 @@
                     <input type="text" hidden value="${petGoods[i].image}" name='goodsImage'>
                     <p class='text-wrap mx-auto goodsNameText'>${petGoods[i].name}</p>
                     <input type="text" hidden value="${petGoods[i].name}" name='goodsName'>
-                    <p>${petGoods[i].price}
-                        <i class='fa-solid fa-dollar-sign text-dark'></i>    
+                    <p class='fs-5'>${petGoods[i].price}
+                        <i class='fa-solid fa-dollar-sign darkText'></i>    
                     </p>
                     <input type="text" hidden value="${petGoods[i].price}" name='goodsPrice'>
                     <button class="btn btnMinus" type='button'>
@@ -150,10 +172,9 @@
             </div>
             `
         }
-        let petCard = document.querySelectorAll('.pet-card');
+        // 設定加減按鈕控制指定商品數量
         let btnPlus = document.querySelectorAll('.btnPlus')
         let btnMinus = document.querySelectorAll('.btnMinus')
-        let btnCart = document.querySelectorAll('.btnCart')
 
         function cartPlus(e) {
             let num = parseInt(e.previousElementSibling.value)
@@ -162,7 +183,6 @@
                 e.previousElementSibling.value = num
             }
         }
-
         function cartMinus(e) {
             let num = parseInt(e.nextElementSibling.value)
             if (num > 0) {
@@ -170,46 +190,66 @@
                 e.nextElementSibling.value = num
             }
         }
-
         for (i = 0; i < petGoods.length; i++) {
             btnPlus[i].addEventListener('click', function () {
                 cartPlus(this)
             })
         }
-
         for (i = 0; i < petGoods.length; i++) {
             btnMinus[i].addEventListener('click', function () {
                 cartMinus(this)
             })
         }
 
+        // 設定購買成功彈跳視窗
         let cartToast = document.getElementById('cartToast')
         const cToast = new bootstrap.Toast(cartToast)
-
-        let cartForm = document.querySelectorAll('.cartForm')
+        let guideToast = document.getElementById('guideToast')
+        const gToast = new bootstrap.Toast(guideToast)
+        // 透過表單抓取「加入購物車」商品名稱、價錢、數目資料
         let shoppingList = []
-
+        let cartForm = document.querySelectorAll('.cartForm')
         for (i = 0; i < petGoods.length; i++) {
             cartForm[i].addEventListener('submit', function (event) {
-                event.preventDefault();
+                event.preventDefault(); // 暫停網頁跳轉
                 for (j = 0; j < petGoods.length; j++) {
                     if (this.id == `form${j}`) {
-                        shoppingList[j] = Array.from(new FormData(document.getElementById(this.id)))
-                        console.log(shoppingList)
-                        cToast.show()
+                        shoppingList[j] = Array.from(new FormData(document.getElementById(this
+                            .id))) // Array.from() 將 FormData 資料轉為可以存進 localStorage 的格式
+                        // console.log(shoppingList)
                     }
                 }
-                localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+                localStorage.setItem('shoppingList', JSON.stringify(shoppingList)) // 將已購買商品資訊存入儲存空間
+                let sum = 0
+                for (s = 0; s < shoppingList.length; s++) {
+                    if (shoppingList[s]) {
+                        sum += parseInt(shoppingList[s][2][1] * shoppingList[s][3][1])
+                        if (sum > 199) {
+                            gToast.show() // 引導訂閱月費制
+                        }else{
+                            cToast.show() // 成功加入購物車
+                        }
+                    }
+                }
+
             })
         }
 
+        // 引導訂閱月費制成功，清除購物車資料
+        let guideToastAgain = document.getElementById('guideToastAgain')
+        guideToastAgain.addEventListener('click',function(){
+            localStorage.setItem('shoppingList',null)
+            window.open('./premiumpage.html','_self')
+        })
+
+        // 設定訂閱成功彈跳視窗
         let monthForm = document.getElementById('monthForm')
         let monthToast = document.getElementById('monthToast')
         const mToast = new bootstrap.Toast(monthToast)
         monthForm.addEventListener('submit', function (event) {
             event.preventDefault()
             let monthPlan = Array.from(new FormData(monthForm))
-            localStorage.setItem('monthPlan' , JSON.stringify(monthPlan))
+            localStorage.setItem('monthPlan', JSON.stringify(monthPlan))
             mToast.show()
         })
     </script>

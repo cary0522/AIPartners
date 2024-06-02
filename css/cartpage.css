@@ -1,31 +1,61 @@
 /* 購買單隻區域 */
-.cart-img{
+.cart-img {
     max-height: 300px;
     object-fit: cover;
 }
-#cartPart span , #cartPart span i , .cart-text{
-    font-size: 1.5rem;
-    color :	#5b5b5be0;
+#cartPart span,
+#cartPart span i,
+.cartText,
+.cart-text
+{
+    font-size: 1.75rem;
+    color: var(--highlight-text);
 }
 
 /* 訂閱制區域 */
-#monthPart span , #monthPart span i , .cart-text{
+#monthPart span,
+#monthPart span i{
     font-size: 1.5rem;
-    color :	#5b5b5be0;
+    color: var(--highlight-text);
 }
 
 /* 總金額區域 */
-#totalPrt span , #totalPrt span i , .cart-text{
-    font-size: 1.5rem;
-    color :	#5b5b5be0;
+#totalPrt {
+    color: var(--main-head);
 }
-/* #totalPart{
-    background-image: radial-gradient( circle ,var(--complementary-text) 0%, var(--complementary-text)50%, transparent 50% );
-} */
-#btnCheckOut{
-    background-color: var(--highlight-text);
+#totalPrice {
+    color: var(--main-head);
+}
+#btnCheckOut {
+    background-color: var(--main-head);
     color: var(--main);
 }
-#btnCheckOut:hover{
-    background-color: var(--main-head);
+#btnCheckOut:hover {
+    background-color: var(--highlight-text);
+}
+
+/* 背景裝飾腳印 */
+.cartFootprintContainer{
+    /* border: 1px black solid; */
+    width: 100px;
+    height: 60%;
+    bottom: 3%;
+    right: 5%;
+    line-height: 70px;
+    transform: rotate(10deg);
+    z-index: -1;
+}
+.cartFootprintItem:nth-child(odd){
+    width: 50%;
+    margin-right: auto;
+    transform: rotate(-5deg);
+    color: rgb(190, 190, 190);
+    opacity: .4;
+}
+.cartFootprintItem:nth-child(even){
+    width: 50%;
+    margin-left: auto;
+    transform: rotate(5deg);
+    color: rgb(190, 190, 190);
+    opacity: .4;
 }

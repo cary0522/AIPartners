@@ -15,10 +15,11 @@
 }
 
 /* 按鈕樣式 */
-.loginpage .rounded-pill{
+#registerBtn , #logInBtn{
     background-color: var(--dark-color);
+    border-radius: 30px;
 }
-.loginpage .rounded-pill:hover{
+#registerBtn:hover , #logInBtn:hover{
     background-color: var(--dark-color);
     box-shadow: 0 0 3px var(--dark-color);
     transform: scale(1.1);

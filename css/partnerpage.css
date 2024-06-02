@@ -33,20 +33,25 @@
 }
 
 /* 互動區域 */
+.partnersIphone{
+    height: 40rem;
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgb(197, 167, 167), -5px -5px 5px rgba(227, 227, 227, .5) inset, 5px 5px 5px rgba(255, 248, 248, .5) inset;
+}
 #interactive-partner-photo img{
     width: 40px;
     height: 40px;
 }
 #interactive-partner-feedback{
     overflow-y: auto;
-    height: 55%;
+    height: 25em;
 }
 #interactive{
     overflow-x: auto ;
 }
 .optionsBehaviors{
     background-color: var(--main);
-    border-radius: 25%;
+    border-radius: 30px;
 }
 .option-text{
     color: var(--main-head);
@@ -73,7 +78,7 @@
 
 /* 成就區域 */
 .achievement-progress{
-    background-color: var(--light-color);
+    background-color: var(--main);
     border-radius: 15px;
     display: none;
     animation: displaySwitch 1.5s ease-out;
@@ -92,4 +97,30 @@
     100%{
         opacity: 0;
     }
+}
+
+/* 背景裝飾腳印 */
+.partnersFootprintContainer{
+    /* border: 1px black solid; */
+    width: 100px;
+    height: 60%;
+    bottom: 3%;
+    left: 5%;
+    line-height: 70px;
+    transform: rotate(-10deg);
+    z-index: -1;
+}
+.partnersFootprintItem:nth-child(odd){
+    width: 50%;
+    margin-right: auto;
+    transform: rotate(-5deg);
+    color: rgb(190, 190, 190);
+    opacity: .4;
+}
+.partnersFootprintItem:nth-child(even){
+    width: 50%;
+    margin-left: auto;
+    transform: rotate(5deg);
+    color: rgb(190, 190, 190);
+    opacity: .4;
 }

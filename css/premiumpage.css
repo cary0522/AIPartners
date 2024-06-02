@@ -1,6 +1,7 @@
 /* 兩個區域共同class */
 .plan{
-    border: 3px dashed black;
+    border: 3px dashed var(--main-head);
+    color: var(--main-head);
 }
 
 /* 單隻購買區域 */
@@ -8,11 +9,13 @@
     border-radius: 100px;
 }
 .goodsNameText{
+    font-size: 1.25rem;
     width: 13.5ch;
 }
 input:invalid{
     color: red;
 }
+
 /* 加入購物車按鈕設定 */
 .submitText small{
     font-size: 12px;
@@ -28,6 +31,9 @@ input:invalid{
 }
 .toastLink:hover a{
     color: white;
+}
+.btnMinus i , .btnPlus i{
+    color: var(--main-head);
 }
 
 /* 訂閱制區域 */

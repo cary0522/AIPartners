@@ -1,24 +1,10 @@
 /* 過場畫面 */
-/* v1 */
 #loading{
     width: 100%;
     height: 100vh;
     background-color: #f9f9f9;
     position: relative;
-}
-#loading-content{
-    position: absolute;
-    top: 30%;
-    left: 55%;
-    transform: translate(-50%,-50%);
-}
-
-/* v2 */
-/* #loading{
-    width: 100%;
-    height: 100vh;
-    background-color: #f9f9f9;
-    position: relative;
+    display: none;
 }
 #loading-content{
     height: 120px;
@@ -30,49 +16,47 @@
 .loadingFootprint:nth-child(odd){
     height: 50%;
     margin-top: auto;
-    color: var(--light-color);
+    color: #f9f9f9;
 }
 .loadingFootprint:nth-child(even){
     height: 50%;
     margin-bottom: auto;
-    color: var(--light-color);
+    color: #f9f9f9;
 }
 
 .loadingFootprint:nth-child(1){
     animation: loadingFootprintGoHead .2s linear forwards ;
 }
 .loadingFootprint:nth-child(2){
-    animation: loadingFootprintGoHead .2s linear forwards .2s;
+    animation: loadingFootprintGoHead .2s linear forwards .3s;
 }
 .loadingFootprint:nth-child(3){
-    animation: loadingFootprintGoHead .2s linear forwards .4s;
-}
-.loadingFootprint:nth-child(4){
     animation: loadingFootprintGoHead .2s linear forwards .6s;
 }
+.loadingFootprint:nth-child(4){
+    animation: loadingFootprintGoHead .2s linear forwards .9s;
+}
 .loadingFootprint:nth-child(5){
-    animation: loadingFootprintGoHead .2s linear forwards .8s;
-}
-.loadingFootprint:nth-child(6){
-    animation: loadingFootprintGoHead .2s linear forwards 1s;
-}
-.loadingFootprint:nth-child(7){
     animation: loadingFootprintGoHead .2s linear forwards 1.2s;
 }
+.loadingFootprint:nth-child(6){
+    animation: loadingFootprintGoHead .2s linear forwards 1.5s;
+}
+.loadingFootprint:nth-child(7){
+    animation: loadingFootprintGoHead .2s linear forwards 1.8s;
+}
 .loadingFootprint:nth-child(8){
-    animation: loadingFootprintGoHead .2s linear forwards 1.4s;
+    animation: loadingFootprintGoHead .2s linear forwards 2.1s;
 }
 
 @keyframes loadingFootprintGoHead{
     0%{
-        color: var(--light-color);
+        color: #f9f9f9;
     }
     100%{
         color: var(--main-head);
     }
-} */
-
-
+}
 
 /* 上方選擇區域 */
 #make-container{
@@ -161,7 +145,6 @@
 .checkedAppearance {
     animation: checkedAppearance .5s ease-in;
 }
-
 
 /* 已選選項及剪影間的關連線 */
 .relateLine{
