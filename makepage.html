@@ -52,7 +52,8 @@
             <!-- 上方選擇區域 -->
             <div class="container-fluid col-12" id="make-container">
                 <h1 id="makePart">選擇寵物外表</h1>
-                <div class="col-12 my-2 mx-auto py-4 px-2 align-self-center d-md-flex justify-content-md-between" id="make-content"></div>
+                <div class="col-12 my-2 mx-auto py-4 px-2 align-self-center d-md-flex justify-content-md-between"
+                    id="make-content"></div>
                 <!-- 下方已選區域 -->
                 <div class="col-12 my-3 my-md-5 mx-auto py-3 px-2 justify-content-center d-flex">
                     <div class="col-6 me-3">
@@ -74,7 +75,7 @@
                         </div>
                     </div>
                     <div class="col-2 align-self-center" id="blindImg">
-                        <img src="./0000.nobackground.png" alt="" class="w-100">
+                        <img src="./nobackgroundIMG/0000.nobackground.png" alt="" class="w-100">
                     </div>
                     <div class="col-6 ms-3">
                         <div class="d-flex px-1">
@@ -125,7 +126,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="footer-page"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
@@ -134,7 +135,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
-
         $('.header-page').load('header.html');
         $('.footer-page').load('footer.html');
 
@@ -165,8 +165,9 @@
         // 偵測選擇次數控制腳印進度條
         let cTimes = 0
         let footDivI = document.querySelectorAll('.footDivI')
+
         function chooseTimes() {
-            if(footDivI[cTimes]){
+            if (footDivI[cTimes]) {
                 footDivI[cTimes].style = 'color:var(--highlight-text);'
             }
             cTimes += 1
@@ -201,7 +202,10 @@
         // 第一階段：選擇外表選項，選項翻頁，將已選選項放入已選陣列並儲存，剪影會隨機變換
         let appearanceLeft = document.getElementById('appearance-left')
         let appearanceRight = document.getElementById('appearance-right')
-        let blindImgSrc = ['./0000.nobackground.png', './1011.nobackground.png', './0011.nobackground.png']
+        let blindImgSrc = ['./nobackgroundIMG/0000.nobackground.png', './nobackgroundIMG/0111.nobackground.png', './nobackgroundIMG/0110.nobackground.png',
+            './nobackgroundIMG/1010.nobackground.png', './nobackgroundIMG/1100.nobackground.png', './nobackgroundIMG/1101.nobackground.png',
+            './nobackgroundIMG/0010.nobackground.png', './nobackgroundIMG/1011.nobackground.png', './nobackgroundIMG/0011.nobackground.png'
+        ]
         let blindImg = document.getElementById('blindImg')
 
         // 設定選擇區域翻頁效果
@@ -210,6 +214,7 @@
             radioLabel[0].classList.add('radioLabelFlip')
             radioLabel[1].classList.add('radioLabelFlip')
         }
+
         function removeFlipCard() {
             let radioLabel = document.querySelectorAll('.radioLabel')
             radioLabel[0].classList.remove('radioLabelFlip')
@@ -277,6 +282,7 @@
 
         // 第二階段：選擇特質，此時剪影不會隨機變換
         let makePart = document.getElementById('makePart');
+
         function traitPart() {
             makePart.innerText = `請選擇寵物特質`
             makeContent.innerHTML = `
@@ -356,7 +362,7 @@
                 document.getElementById('loading').classList.add('d-block')
                 setTimeout(() => {
                     window.open('./partnerspage.html', '_self')
-                }, 2200)
+                }, 2800)
             })
         }
     </script>
