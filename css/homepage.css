@@ -31,7 +31,7 @@
 }
 .textOne::after {
     content: '';
-    border-left: 1px solid gray;
+    border-left: 1px solid rgba(128, 128, 128 , 1 );
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     background-color: var(--main);
@@ -44,7 +44,7 @@
 }
 .textTwo::after {
     content: '';
-    border-left: 1px solid transparent;
+    border-left: 1px solid rgba(128, 128, 128 , 0 );
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     background-color: var(--main);
@@ -68,7 +68,7 @@
 }
 .textThree::after {
     content: '';
-    border-left: 1px solid transparent;
+    border-left: 1px solid rgba(128, 128, 128 , 0 );
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     background-color: var(--main);
@@ -108,11 +108,11 @@
 }
 @keyframes blank {
     from {
-        border-left: solid 1px gary
+        border-left: solid 1px rgba(128, 128, 128 , 0 )
     }
 
     to {
-        border-left: solid 1px transparent
+        border-left: solid 1px rgba(128, 128, 128 , 1 )
     }
 }
 .enter-content {
@@ -125,6 +125,10 @@
 }
 .iphone i , .iphone p {
     color: var(--main-head);
+}
+.iphone-pic img{
+    max-width: 40px;
+    object-fit: contain;
 }
 
 /* 設定泡泡飄浮效果 */

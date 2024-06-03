@@ -80,7 +80,7 @@
     box-shadow: 0 0 3px var(--dark-text);
 }
 .radioLabel {
-    font-size: 35px;
+    font-size: 30px;
     border: 2px solid var(--dark-text);
     border-radius: 30px;
     color: var(--dark-text);
@@ -213,6 +213,8 @@
     bottom: 3%;
     left: 10%;
     line-height: 80px;
+    visibility: hidden;
+    /* 預設不顯示，min-width768顯示 */
 }
 .footprintItem i{
     color: rgb(190, 190, 190);
@@ -241,10 +243,10 @@
     .checkedOption {
         font-size: 24px;
     }
-    #blindImg , .relateLine{
+    #blindImg , .relateLine {
         display: block;
     }
-    #footDiv{
+    #footDiv, #footprintDiv{
         visibility: visible;
     }
 }
