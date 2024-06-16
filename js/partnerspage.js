@@ -1,13 +1,73 @@
 $('.header-page').load('header.html');
 $('.footer-page').load('footer.html');
 
+// 嘗試從前端傳遞資料到後端，請後端至資料庫撈取相應的資料
+// function getInfo(e) {
+//     let xhr = new XMLHttpRequest();
+//     xhr.open('POST', 'http://localhost/AIpartners.php');
+//     xhr.onreadystatechange = (() => {
+//         if (xhr.readyState == 4 && xhr.status == 200){
+//             console.log('ok');
+//             // let response = JSON.parse(xhr.responseText);
+//         }else{
+//             console.log('error');
+//         }
+//     })
+//     xhr.setRequestHeader("Content-Type","Application/json;charset=utf-8");
+//     xhr.send(e);
+// }
+
+// window.addEventListener('load',(()=>{
+//     let partner_appearance = localStorage.getItem('partnerAppearance');
+//     getInfo(partner_appearance);
+// }))
+
+function getInfo() {
+    let partner_appearance = localStorage.getItem('partnerAppearance');
+    fetch('http://127.0.0.1/AIpartners.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: partner_appearance
+    }).then((response) => {
+        console.log('success');
+        return response.json();
+    }).then((res) => {
+        console.log(res);
+        // let partner_appearance = localStorage.getItem('partnerAppearance');
+        // let partnerAppearanceArr = JSON.parse(partner_appearance);
+
+        let photo = document.getElementById('photo');
+        let interactivePartnerPhoto = document.getElementById('interactive-partner-photo')
+
+        photo.innerHTML = `<img src='data:image/png;base64, ${res}' alt=''>`
+        interactivePartnerPhoto.innerHTML =
+            `<img src="data:image/png;base64, ${res}" alt="" class="rounded-circle flex-shrink-0">`
+
+        // for (i = 0; i < 16; i++) {
+        //     if (partnerAppearanceArr.toString() == res['appearance'][i].toString()) {
+        //         photo.innerHTML = `<img src='data:image/png;base64, ${res['image'][i]}' alt=''>`
+        //         interactivePartnerPhoto.innerHTML =
+        //             `<img src="data:image/png;base64, ${res['image'][i]}" alt="" class="rounded-circle flex-shrink-0">`
+        //     }
+        // }
+    })
+}
+
+window.onload = () => {
+    getInfo();
+}
+
+
+
 let partner_name = localStorage.getItem('partnerName');
 let partner_trait = localStorage.getItem('partnerTrait');
 let partnerTraitArr = JSON.parse(partner_trait);
-let partner_appearance = localStorage.getItem('partnerAppearance');
-let partnerAppearanceArr = JSON.parse(partner_appearance);
+// let partner_appearance = localStorage.getItem('partnerAppearance');
+// let partnerAppearanceArr = JSON.parse(partner_appearance);
 // console.log(partnerTraitArr);
-// console.log(partnerAppearanceArr);
+console.log(partnerAppearanceArr);
 
 // 基本資料：姓名
 let partnerName = document.getElementById('partner-name');
@@ -15,91 +75,92 @@ partnerName.innerText = partner_name;
 let interactivePartnerName = document.getElementById('interactive-partner-name')
 interactivePartnerName.innerText = partner_name;
 // 基本資料：圖片
-let photoSrc = [
-    'partners_photo/0000.jpg',
-    'partners_photo/0001.jpg',
-    'partners_photo/0010.jpg',
-    'partners_photo/0011.jpg',
-    'partners_photo/0100.jpg',
-    'partners_photo/0101.jpg',
-    'partners_photo/0110.jpg',
-    'partners_photo/0111.jpg',
-    'partners_photo/1000.jpg',
-    'partners_photo/1001.jpg',
-    'partners_photo/1010.jpg',
-    'partners_photo/1011.jpg',
-    'partners_photo/1100.jpg',
-    'partners_photo/1101.jpg',
-    'partners_photo/1110.jpg',
-    'partners_photo/1111.jpg',
-]
-let photo = document.getElementById('photo');
-let interactivePartnerPhoto = document.getElementById('interactive-partner-photo')
-if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '大耳朵', '身強體壯'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[0]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[0]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '大耳朵', '瘦小可愛'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[1]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[1]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '小耳朵', '身強體壯'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[2]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[2]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '小耳朵', '瘦小可愛'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[3]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[3]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '大耳朵', '身強體壯'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[4]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[4]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '大耳朵', '瘦小可愛'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[5]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[5]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '小耳朵', '身強體壯'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[6]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[6]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '小耳朵', '瘦小可愛'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[7]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[7]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '大耳朵', '身強體壯'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[8]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[8]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '大耳朵', '瘦小可愛'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[9]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[9]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '小耳朵', '身強體壯'].toString()) {
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[10]}" alt="" class="rounded-circle flex-shrink-0">`
-    photo.innerHTML = `<img src='${photoSrc[10]}' alt=''>`
-} else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '小耳朵', '瘦小可愛'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[11]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[11]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['現代機械', '小眼睛', '大耳朵', '身強體壯'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[12]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[12]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['現代機械', '小眼睛', '大耳朵', '瘦小可愛'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[13]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[13]}" alt="" class="rounded-circle flex-shrink-0">`
-} else if (partnerAppearanceArr.toString() == ['現代機械', '小眼睛', '小耳朵', '身強體壯'].toString()) {
-    photo.innerHTML = `<img src='${photoSrc[14]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[14]}" alt="" class="rounded-circle flex-shrink-0">`
-} else {
-    photo.innerHTML = `<img src='${photoSrc[15]}' alt=''>`
-    interactivePartnerPhoto.innerHTML =
-        `<img src="${photoSrc[15]}" alt="" class="rounded-circle flex-shrink-0">`
-}
+// let photoSrc = [
+//     'partners_photo/0000.jpg',
+//     'partners_photo/0001.jpg',
+//     'partners_photo/0010.jpg',
+//     'partners_photo/0011.jpg',
+//     'partners_photo/0100.jpg',
+//     'partners_photo/0101.jpg',
+//     'partners_photo/0110.jpg',
+//     'partners_photo/0111.jpg',
+//     'partners_photo/1000.jpg',
+//     'partners_photo/1001.jpg',
+//     'partners_photo/1010.jpg',
+//     'partners_photo/1011.jpg',
+//     'partners_photo/1100.jpg',
+//     'partners_photo/1101.jpg',
+//     'partners_photo/1110.jpg',
+//     'partners_photo/1111.jpg',
+// ]
+// let photo = document.getElementById('photo');
+// let interactivePartnerPhoto = document.getElementById('interactive-partner-photo')
+
+// if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '大耳朵', '身強體壯'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[0]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[0]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '大耳朵', '瘦小可愛'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[1]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[1]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '小耳朵', '身強體壯'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[2]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[2]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['毛絨可愛', '大眼睛', '小耳朵', '瘦小可愛'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[3]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[3]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '大耳朵', '身強體壯'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[4]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[4]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '大耳朵', '瘦小可愛'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[5]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[5]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '小耳朵', '身強體壯'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[6]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[6]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['毛絨可愛', '小眼睛', '小耳朵', '瘦小可愛'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[7]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[7]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '大耳朵', '身強體壯'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[8]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[8]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '大耳朵', '瘦小可愛'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[9]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[9]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '小耳朵', '身強體壯'].toString()) {
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[10]}" alt="" class="rounded-circle flex-shrink-0">`
+//     photo.innerHTML = `<img src='${photoSrc[10]}' alt=''>`
+// } else if (partnerAppearanceArr.toString() == ['現代機械', '大眼睛', '小耳朵', '瘦小可愛'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[11]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[11]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['現代機械', '小眼睛', '大耳朵', '身強體壯'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[12]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[12]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['現代機械', '小眼睛', '大耳朵', '瘦小可愛'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[13]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[13]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else if (partnerAppearanceArr.toString() == ['現代機械', '小眼睛', '小耳朵', '身強體壯'].toString()) {
+//     photo.innerHTML = `<img src='${photoSrc[14]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[14]}" alt="" class="rounded-circle flex-shrink-0">`
+// } else {
+//     photo.innerHTML = `<img src='${photoSrc[15]}' alt=''>`
+//     interactivePartnerPhoto.innerHTML =
+//         `<img src="${photoSrc[15]}" alt="" class="rounded-circle flex-shrink-0">`
+// }
 // 基本資料：特質敘述
 let info = document.getElementById('info');
 info.innerHTML = ` 
