@@ -49,7 +49,7 @@ function getInfo() {
     console.log(AiPartner.appearance);
     console.log(AiPartner.trait);
 
-    fetch('http://127.0.0.1/AIpartners.php', {
+    fetch('http://127.0.0.1/AIpartner/AIpartners.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
