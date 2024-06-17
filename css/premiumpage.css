@@ -15,6 +15,15 @@
 input:invalid{
     color: red;
 }
+#linkArea a{
+    color: gray;
+}
+#linkArea a:hover{
+    /* background-color: gray; */
+    color: var(--main-head);
+    transform: scale(1.2);
+}
+
 
 /* 加入購物車按鈕設定 */
 .submitText small{
